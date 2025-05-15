@@ -8,24 +8,62 @@ def process_v2ray_source(url):
     domains = []
     for line in lines:
         line = line.strip()
+        if not line or line.startswith("#"):
+            continue
         if line.startswith("include:"):
             included_file = line.split(":")[1].strip()
             # Assume included files are in the same directory
             included_url = url.replace(url.split("/")[-1], included_file)
             included_domains = process_v2ray_source(included_url)
             domains.extend(included_domains)
-        elif line.startswith("domain:"):
-            domain = line.split(":")[1].strip().split()[0]
+        else:
+            # Remove any attributes that start with "@"
+            parts = line.split()
+            domain_info = parts[0]
+            if domain_info.startswith("domain:"):
+                domain = domain_info.split(":")[1]
+                domains.append(domain)
+            elif domain_info.startswith("keyword:"):
+                keyword = domain_info.split(":")[1]
+                domains.append(f"keyword:{keyword}")
+            elif domain_info.startswith("regexp:"):
+                regexp = domain_info.split(":")[1]
+                domains.append(f"regexp:{regexp}")
+            elif domain_info.startswith("full:"):
+                full_domain = domain_info.split(":")[1]
+                domains.append(full_domain)
+            else:
+                # Assume it's a domain suffix
+                domains.append(f"suffix:{domain_info}")
+    return domains
+
+def process_plain_source(list):
+    domains = []
+    for item in list:
+        item = item.strip()
+        if not item or item.startswith("#"):
+            continue
+        # Remove any attributes that start with "@"
+        parts = item.split()
+        domain_info = parts[0]
+        if domain_info.startswith("suffix:"):
+            domain_suffix = domain_info.split(":")[1].strip()
+            domains.append(f"suffix:{domain_suffix}")
+        elif domain_info.startswith("domain:"):
+            domain = domain_info.split(":")[1].strip()
             domains.append(domain)
-        elif line.startswith("keyword:"):
-            keyword = line.split(":")[1].strip()
+        elif domain_info.startswith("keyword:"):
+            keyword = domain_info.split(":")[1].strip()
             domains.append(f"keyword:{keyword}")
-        elif line.startswith("regexp:"):
-            regexp = line.split(":")[1].strip()
+        elif domain_info.startswith("regexp:"):
+            regexp = domain_info.split(":")[1].strip()
             domains.append(f"regexp:{regexp}")
-        elif line.startswith("full:"):
-            full_domain = line.split(":")[1].strip()
+        elif domain_info.startswith("full:"):
+            full_domain = domain_info.split(":")[1].strip()
             domains.append(full_domain)
+        else:
+            # Assume it's a domain suffix
+            domains.append(f"suffix:{domain_info}")
     return domains
 
 def process_clash_source(url):
@@ -43,16 +81,6 @@ def process_clash_source(url):
         elif line.startswith("DOMAIN-KEYWORD,"):
             keyword = line.split(",")[1].strip()
             domains.append(f"keyword:{keyword}")
-    return domains
-
-def process_plain_source(list):
-    domains = []
-    for item in list:
-        if item.startswith("suffix:"):
-            domain_suffix = item.split(":")[1].strip()
-            domains.append(f"suffix:{domain_suffix}")
-        else:
-            domains.append(item)
     return domains
 
 def generate_json(route):

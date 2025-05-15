@@ -12,8 +12,9 @@
           "source": "direct",
           "type": "plain",
           "list":[
-            "graph.whatsapp.com",
-            "graph.whatsapp.net",
+            "full:graph.whatsapp.com",
+            "full:graph.whatsapp.net",
+            "whatstun.com",
             "suffix:whatsapp.com",
             "keyword:whatsapp"
           ]
