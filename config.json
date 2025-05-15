@@ -33,6 +33,27 @@
           "source": "blackmatrix7",
           "type": "clash",
           "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Surge/Facebook/Facebook.list"
+        },
+        {
+          "source": "direct",
+          "type": "plain",
+          "list":[
+            "full:graph.malik.com",
+            "full:graph.malik.net",
+            "malik.com",
+            "suffix:whatmaliksapp.com",
+            "keyword:maliksfb"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "meta",
+      "list":[
+        {
+          "source": "domain-list-community",
+          "type": "v2ray",
+          "url": "https://raw.githubusercontent.com/v2fly/domain-list-community/refs/heads/master/data/meta"
         }
       ]
     }
