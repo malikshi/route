@@ -1,0 +1,39 @@
+{
+  "route": [
+    {
+      "name": "whatsapp",
+      "list": [
+        {
+          "source": "domain-list-community",
+          "type": "v2ray",
+          "url": "https://raw.githubusercontent.com/v2fly/domain-list-community/refs/heads/master/data/whatsapp"
+        },
+        {
+          "source": "direct",
+          "type": "plain",
+          "list":[
+            "graph.whatsapp.com",
+            "graph.whatsapp.net",
+            "suffix:whatsapp.com",
+            "keyword:whatsapp"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "facebook",
+      "list": [
+        {
+          "source": "domain-list-community",
+          "type": "v2ray",
+          "url": "https://raw.githubusercontent.com/v2fly/domain-list-community/refs/heads/master/data/facebook"
+        },
+        {
+          "source": "blackmatrix7",
+          "type": "clash",
+          "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Surge/Facebook/Facebook.list"
+        }
+      ]
+    }
+  ]
+}
