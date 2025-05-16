@@ -51,13 +51,19 @@ def process_plain_source(list):
         item = item.strip()
         if not item or item.startswith("#"):
             continue
-        if item.startswith("- '") and "/" in item:
-            item = item[3:-1].strip()
+        if item.startswith("- "):
+            item = item[2:].strip()
+        if item.startswith("'") and item.endswith("'"):
+            item = item[1:-1].strip()
         if item.startswith("IP-CIDR,"):
             ip_cidr = item.split(",")[1].strip()
             ip_cidrs.append(ip_cidr)
         elif "/" in item:
-            ip_cidrs.append(item)
+            if "," in item and item.startswith("IP-CIDR,"):
+                ip_cidr = item.split(",")[1].strip()
+                ip_cidrs.append(ip_cidr)
+            else:
+                ip_cidrs.append(item)
         else:
             # Remove any attributes that start with "@"
             parts = item.split()
