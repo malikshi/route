@@ -2,6 +2,7 @@
   "route": [
     {
       "name": "whatsapp",
+      "routing": "CGK",
       "list": [
         {
           "source": "domain-list-community",
@@ -23,6 +24,7 @@
     },
     {
       "name": "facebook",
+      "routing": "SIN",
       "list": [
         {
           "source": "domain-list-community",

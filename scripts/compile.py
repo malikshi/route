@@ -164,11 +164,30 @@ def generate_json(route):
     if ip_cidrs["ipv4"] or ip_cidrs["ipv6"]:
         rule["ip_cidr"] = ip_cidrs["ipv4"] + ip_cidrs["ipv6"]
 
-    json_data = {
+    json_data_srs = {
         "version": 3,
         "rules": [rule]
     }
-    return json_data
+
+    rules = []
+    for domain in domains["domain"]:
+        rules.append({"PK": domain, "action": {"do": 3, "via": route["routing"], "status": 1}})
+    for domain_suffix in domains["domain_suffix"]:
+        rules.append({"PK": domain_suffix, "action": {"do": 3, "via": route["routing"], "status": 1}})
+
+    json_data_routing = {
+        "group": {
+            "group": route["name"],
+            "action": {
+                "do": 3,
+                "via": route["routing"],
+                "status": 1
+            }
+        },
+        "rules": rules
+    }
+
+    return json_data_srs, json_data_routing
 
 
 def compile_srs(json_data, output_file):
@@ -187,9 +206,11 @@ def main():
 
     for route in config["route"]:
         name = route["name"]
-        json_data = generate_json(route)
+        json_data_srs, json_data_routing = generate_json(route)
         output_file = f"{name}.srs"
-        compile_srs(json_data, output_file)
+        compile_srs(json_data_srs, output_file)
+        with open(f"{name}.json", "w") as f:
+            json.dump(json_data_routing, f)
 
 
 if __name__ == "__main__":
