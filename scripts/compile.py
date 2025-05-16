@@ -3,7 +3,13 @@ import requests
 import subprocess
 
 def process_v2ray_source(url):
-    response = requests.get(url)
+    try:
+        response = requests.get(url)
+        response.raise_for_status()  # Raise an exception for HTTP errors
+    except requests.exceptions.RequestException as e:
+        print(f"Error fetching {url}: {e}")
+        return []
+
     lines = response.text.splitlines()
     domains = []
     for line in lines:
@@ -37,39 +43,56 @@ def process_v2ray_source(url):
                 domains.append(f"suffix:{domain_info}")
     return domains
 
+
 def process_plain_source(list):
     domains = []
+    ip_cidrs = []
     for item in list:
         item = item.strip()
         if not item or item.startswith("#"):
             continue
-        # Remove any attributes that start with "@"
-        parts = item.split()
-        domain_info = parts[0]
-        if domain_info.startswith("suffix:"):
-            domain_suffix = domain_info.split(":")[1].strip()
-            domains.append(f"suffix:{domain_suffix}")
-        elif domain_info.startswith("domain:"):
-            domain = domain_info.split(":")[1].strip()
-            domains.append(domain)
-        elif domain_info.startswith("keyword:"):
-            keyword = domain_info.split(":")[1].strip()
-            domains.append(f"keyword:{keyword}")
-        elif domain_info.startswith("regexp:"):
-            regexp = domain_info.split(":")[1].strip()
-            domains.append(f"regexp:{regexp}")
-        elif domain_info.startswith("full:"):
-            full_domain = domain_info.split(":")[1].strip()
-            domains.append(full_domain)
+        if item.startswith("- '") and "/" in item:
+            item = item[3:-1].strip()
+        if item.startswith("IP-CIDR,"):
+            ip_cidr = item.split(",")[1].strip()
+            ip_cidrs.append(ip_cidr)
+        elif "/" in item:
+            ip_cidrs.append(item)
         else:
-            # Assume it's a domain suffix
-            domains.append(f"suffix:{domain_info}")
-    return domains
+            # Remove any attributes that start with "@"
+            parts = item.split()
+            domain_info = parts[0]
+            if domain_info.startswith("suffix:"):
+                domain_suffix = domain_info.split(":")[1].strip()
+                domains.append(f"suffix:{domain_suffix}")
+            elif domain_info.startswith("domain:"):
+                domain = domain_info.split(":")[1].strip()
+                domains.append(domain)
+            elif domain_info.startswith("keyword:"):
+                keyword = domain_info.split(":")[1].strip()
+                domains.append(f"keyword:{keyword}")
+            elif domain_info.startswith("regexp:"):
+                regexp = domain_info.split(":")[1].strip()
+                domains.append(f"regexp:{regexp}")
+            elif domain_info.startswith("full:"):
+                full_domain = domain_info.split(":")[1].strip()
+                domains.append(full_domain)
+            else:
+                domains.append(f"suffix:{domain_info}")
+    return domains, ip_cidrs
+
 
 def process_clash_source(url):
-    response = requests.get(url)
+    try:
+        response = requests.get(url)
+        response.raise_for_status()  # Raise an exception for HTTP errors
+    except requests.exceptions.RequestException as e:
+        print(f"Error fetching {url}: {e}")
+        return [], []
+
     lines = response.text.splitlines()
     domains = []
+    ip_cidrs = []
     for line in lines:
         line = line.strip()
         if line.startswith("DOMAIN-SUFFIX,"):
@@ -81,17 +104,23 @@ def process_clash_source(url):
         elif line.startswith("DOMAIN-KEYWORD,"):
             keyword = line.split(",")[1].strip()
             domains.append(f"keyword:{keyword}")
-    return domains
+        elif line.startswith("IP-CIDR,"):
+            ip_cidr = line.split(",")[1].strip()
+            ip_cidrs.append(ip_cidr)
+    return domains, ip_cidrs
+
 
 def generate_json(route):
     domains = {"domain": [], "domain_suffix": [], "domain_keyword": [], "domain_regex": []}
+    ip_cidrs = []
     for source in route["list"]:
         if source["type"] == "v2ray":
             source_domains = process_v2ray_source(source["url"])
+            source_ip_cidrs = []
         elif source["type"] == "clash":
-            source_domains = process_clash_source(source["url"])
+            source_domains, source_ip_cidrs = process_clash_source(source["url"])
         elif source["type"] == "plain":
-            source_domains = process_plain_source(source["list"])
+            source_domains, source_ip_cidrs = process_plain_source(source["list"])
         for domain in source_domains:
             if domain.startswith("suffix:"):
                 domains["domain_suffix"].append(domain.split(":")[1])
@@ -101,30 +130,48 @@ def generate_json(route):
                 domains["domain_regex"].append(domain.split(":")[1])
             else:
                 domains["domain"].append(domain)
+        ip_cidrs.extend(source_ip_cidrs)
+
     # Remove duplicates
     for key in domains:
         domains[key] = list(set(domains[key]))
+    ip_cidrs = list(set(ip_cidrs))
+
+    rule = {
+        key: domains[key]
+        for key in domains
+        if domains[key]
+    }
+    if ip_cidrs:
+        rule["ip_cidr"] = ip_cidrs
+
     json_data = {
         "version": 3,
-        "rules": [
-            {key: domains[key] for key in domains if domains[key]}
-        ]
+        "rules": [rule]
     }
     return json_data
+
 
 def compile_srs(json_data, output_file):
     with open("temp.json", "w") as f:
         json.dump(json_data, f)
     subprocess.run(["sing-box", "rule-set", "compile", "temp.json", "-o", output_file])
 
+
 def main():
-    with open("config.json") as f:
-        config = json.load(f)
+    try:
+        with open("config.json") as f:
+            config = json.load(f)
+    except json.JSONDecodeError as e:
+        print(f"Error parsing config.json: {e}")
+        return
+
     for route in config["route"]:
         name = route["name"]
         json_data = generate_json(route)
         output_file = f"{name}.srs"
         compile_srs(json_data, output_file)
+
 
 if __name__ == "__main__":
     main()

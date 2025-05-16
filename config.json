@@ -42,28 +42,12 @@
             "full:graph.malik.net",
             "malik.com",
             "suffix:whatmaliksapp.com",
-            "keyword:maliksfb"
+            "keyword:maliksfb",
+            "111.111.111.111/23",
+            "- '222.222.222.222/32'",
+            "IP-CIDR,123.123.123.123/21",
+            "IP-CIDR,100.100.100.100/17,no-resolve"
           ]
-        }
-      ]
-    },
-    {
-      "name": "meta",
-      "list":[
-        {
-          "source": "domain-list-community",
-          "type": "v2ray",
-          "url": "https://raw.githubusercontent.com/v2fly/domain-list-community/refs/heads/master/data/meta"
-        }
-      ]
-    },
-    {
-      "name": "google-ads",
-      "list":[
-        {
-          "source": "domain-list-community",
-          "type": "v2ray",
-          "url": "https://raw.githubusercontent.com/v2fly/domain-list-community/refs/heads/master/data/google-ads"
         }
       ]
     }
