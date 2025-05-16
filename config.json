@@ -35,6 +35,11 @@
           "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Surge/Facebook/Facebook.list"
         },
         {
+          "source": "geoip",
+          "type": "clash",
+          "url": "https://raw.githubusercontent.com/malikshi/geoip/refs/heads/release/clash/classical/facebook.txt"
+        },
+        {
           "source": "direct",
           "type": "plain",
           "list":[

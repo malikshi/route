@@ -55,11 +55,11 @@ def process_plain_source(list):
             item = item[2:].strip()
         if item.startswith("'") and item.endswith("'"):
             item = item[1:-1].strip()
-        if item.startswith("IP-CIDR,"):
+        if item.startswith("IP-CIDR,") or item.startswith("IP-CIDR6,"):
             ip_cidr = item.split(",")[1].strip()
             ip_cidrs.append(ip_cidr)
         elif "/" in item:
-            if "," in item and item.startswith("IP-CIDR,"):
+            if "," in item and (item.startswith("IP-CIDR,") or item.startswith("IP-CIDR6,")):
                 ip_cidr = item.split(",")[1].strip()
                 ip_cidrs.append(ip_cidr)
             else:
@@ -101,6 +101,12 @@ def process_clash_source(url):
     ip_cidrs = []
     for line in lines:
         line = line.strip()
+        if not line or line.startswith("#"):
+            continue
+        if line.startswith("- "):
+            line = line[2:].strip()
+        if line.startswith("'") and line.endswith("'"):
+            line = line[1:-1].strip()
         if line.startswith("DOMAIN-SUFFIX,"):
             domain_suffix = line.split(",")[1].strip()
             domains.append(f"suffix:{domain_suffix}")
@@ -110,9 +116,11 @@ def process_clash_source(url):
         elif line.startswith("DOMAIN-KEYWORD,"):
             keyword = line.split(",")[1].strip()
             domains.append(f"keyword:{keyword}")
-        elif line.startswith("IP-CIDR,"):
+        elif line.startswith("IP-CIDR,") or line.startswith("IP-CIDR6,"):
             ip_cidr = line.split(",")[1].strip()
             ip_cidrs.append(ip_cidr)
+        elif "/" in line:
+            ip_cidrs.append(line)
     return domains, ip_cidrs
 
 
