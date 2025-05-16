@@ -126,7 +126,7 @@ def process_clash_source(url):
 
 def generate_json(route):
     domains = {"domain": [], "domain_suffix": [], "domain_keyword": [], "domain_regex": []}
-    ip_cidrs = []
+    ip_cidrs = {"ipv4": [], "ipv6": []}
     for source in route["list"]:
         if source["type"] == "v2ray":
             source_domains = process_v2ray_source(source["url"])
@@ -144,20 +144,25 @@ def generate_json(route):
                 domains["domain_regex"].append(domain.split(":")[1])
             else:
                 domains["domain"].append(domain)
-        ip_cidrs.extend(source_ip_cidrs)
+        for ip_cidr in source_ip_cidrs:
+            if ":" in ip_cidr.split("/")[0]:
+                ip_cidrs["ipv6"].append(ip_cidr)
+            else:
+                ip_cidrs["ipv4"].append(ip_cidr)
 
-    # Remove duplicates
+    # Remove duplicates and sort
     for key in domains:
-        domains[key] = list(set(domains[key]))
-    ip_cidrs = list(set(ip_cidrs))
+        domains[key] = sorted(list(set(domains[key])))
+    ip_cidrs["ipv4"] = sorted(list(set(ip_cidrs["ipv4"])))
+    ip_cidrs["ipv6"] = sorted(list(set(ip_cidrs["ipv6"])))
 
     rule = {
         key: domains[key]
         for key in domains
         if domains[key]
     }
-    if ip_cidrs:
-        rule["ip_cidr"] = ip_cidrs
+    if ip_cidrs["ipv4"] or ip_cidrs["ipv6"]:
+        rule["ip_cidr"] = ip_cidrs["ipv4"] + ip_cidrs["ipv6"]
 
     json_data = {
         "version": 3,
