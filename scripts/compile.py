@@ -1,6 +1,7 @@
 import json
 import requests
 import subprocess
+import os
 
 def process_v2ray_source(url):
     try:
@@ -204,14 +205,20 @@ def main():
         print(f"Error parsing config.json: {e}")
         return
 
+    output_dir = "release"
+    os.makedirs(os.path.join(output_dir, "srs"), exist_ok=True)
+    os.makedirs(os.path.join(output_dir, "json"), exist_ok=True)
+    srs_dir = os.path.join(output_dir, "srs")
+    json_dir = os.path.join(output_dir, "json")
+
     for route in config["route"]:
         name = route["name"]
         json_data_srs, json_data_routing = generate_json(route)
-        output_file = f"{name}.srs"
-        compile_srs(json_data_srs, output_file)
-        with open(f"{name}.json", "w") as f:
+        output_file_srs = os.path.join(srs_dir, f"{name}.srs")
+        compile_srs(json_data_srs, output_file_srs)
+        output_file_json = os.path.join(json_dir, f"{name}.json")
+        with open(output_file_json, "w") as f:
             json.dump(json_data_routing, f)
-
 
 if __name__ == "__main__":
     main()
