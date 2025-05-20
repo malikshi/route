@@ -1,6 +1,445 @@
 {
   "route": [
     {
+      "name": "googleapis",
+      "routing": "CGK",
+      "list": [
+        {
+          "source": "direct",
+          "type": "plain",
+          "list": [
+            "userlocation.googleapis.com",
+            "maps.googleapis.com",
+            "www.googleapis.com",
+            "roads.googleapis.com",
+            "addressvalidation.googleapis.com",
+            "play.google.com"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "bank-id",
+      "routing": "CGK",
+      "list": [
+        {
+          "source": "direct",
+          "type": "plain",
+          "list": [
+            "aladinbank.id",
+            "allobank.com",
+            "amarbank.co.id",
+            "anz.com",
+            "arthagraha.com",
+            "bankaceh.co.id",
+            "bankagris.co.id",
+            "bankbanten.co.id",
+            "bankbba.co.id",
+            "bankbengkulu.co.id",
+            "bankbisnis.com",
+            "bankbpdkalsel.co.id",
+            "bankbsi.co.id",
+            "bankcapital.co.id",
+            "bankdinar.co.id",
+            "bankdki.co.id",
+            "bankganesha.co.id",
+            "bankina.co.id",
+            "bankindex.co.id",
+            "bankjabar.co.id",
+            "bankjambi.co.id",
+            "bankjateng.co.id",
+            "bankjatim.co.id",
+            "bankkalbar.co.id",
+            "bankkaltim.com",
+            "bankkesejahteraan.co.id",
+            "banklampung.co.id",
+            "bankmaluku.co.id",
+            "bankmandiri.co.id",
+            "bankmantap.co.id",
+            "bankmas.co.id",
+            "bankmaspion.co.id",
+            "bankmayapada.com",
+            "bankmayora.com",
+            "bankmega.com",
+            "bankmestika.co.id",
+            "banknagari.co.id",
+            "bankneo.co.id",
+            "bankneocommerce.co.id",
+            "bankntb.co.id",
+            "bankofamerica.com",
+            "bankofchina.co.id",
+            "bankpapua.com",
+            "bankraya.co.id",
+            "banksampoerna.com",
+            "banksaudara.com",
+            "banksinarmas.co.id",
+            "banksulsel.co.id",
+            "banksultra.co.id",
+            "banksulutgo.co.id",
+            "banksumselbabel.com",
+            "banksumut.com",
+            "bankvictoriasyariah.co.id",
+            "bca.co.id",
+            "bcadigital.co.id",
+            "bcasyariah.co.id",
+            "bjbsyariah.co.id",
+            "bjj.co.id",
+            "blubybcadigital.id",
+            "bni.co.id",
+            "bnpparibas.co.id",
+            "boiindonesia.co.id",
+            "bp-kalteng.com",
+            "bpdbali.co.id",
+            "bpddiy.co.id",
+            "bpdntt.co.id",
+            "bri.co.id",
+            "brksyariah.co.id",
+            "btn.co.id",
+            "btpn.com",
+            "btpnsyariah.com",
+            "bukopin.co.id",
+            "chinatrust.co.id",
+            "cimbniaga.com",
+            "citibank.co.id",
+            "commbank.co.id",
+            "danamon.co.id",
+            "dbs.com",
+            "deutsche-bank.co.id",
+            "hanabank.co.id",
+            "hsbc.co.id",
+            "icbcindo.com",
+            "idn.ccb.com",
+            "jago.com",
+            "jpmorganchase.com",
+            "jtrustbank.co.id",
+            "klikbca.com",
+            "linebank.co.id",
+            "maybank.co.id",
+            "megasyariah.co.id",
+            "mizuhocbk.co.id",
+            "mncbank.co.id",
+            "muamalatbank.com",
+            "mufg.co.id",
+            "nobubank.com",
+            "ocbcnisp.com",
+            "panin.co.id",
+            "paninbanksyariah.co.id",
+            "perdania.co.id",
+            "permatabank.com",
+            "primamasterbank.co.id",
+            "qnb.co.id",
+            "sbiindo.com",
+            "seabank.co.id",
+            "shinhan.co.id",
+            "standardchartered.com",
+            "sulteng.go.id",
+            "superbank.id",
+            "uob.co.id",
+            "victoriabank.co.id",
+            "wsyariahbukopin.co.id"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ewallet",
+      "routing": "CGK",
+      "list": [
+        {
+          "source": "direct",
+          "type": "plain",
+          "list": [
+            "gojek.com",
+            "gopay.com",
+            "gobiz.co.id",
+            "ovo.id",
+            "dana.id",
+            "linkaja.id",
+            "octoclicks.co.id",
+            "i-saku.com",
+            "doku.com",
+            "shopeepay.co.id",
+            "grab.com",
+            "grabtaxi.com",
+            "keyword:gojek",
+            "keyword:gopay",
+            "keyword:gobiz",
+            "keyword:ovo",
+            "keyword:dana",
+            "keyword:linkaja",
+            "keyword:octoclicks",
+            "keyword:i-saku",
+            "keyword:doku",
+            "keyword:shopeepay",
+            "keyword:grab",
+            "keyword:grabtaxi"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "marketplace",
+      "routing": "CGK",
+      "list": [
+        {
+          "source": "domain-list-community",
+          "type": "v2ray",
+          "url": "https://raw.githubusercontent.com/v2fly/domain-list-community/refs/heads/master/data/shopee"
+        },
+        {
+          "source": "direct",
+          "type": "plain",
+          "list": [
+            "tokopedia.com",
+            "shopee.co.id",
+            "shopeemobile.com",
+            "bukalapak.com",
+            "lazada.co.id",
+            "blibli.com",
+            "orami.co.id",
+            "ralali.com",
+            "bhinneka.com",
+            "zalora.co.id",
+            "sociolla.com",
+            "matahari.com",
+            "hijup.com",
+            "klikindomaret.com",
+            "alfagift.id",
+            "keyword:tokopedia",
+            "keyword:shopee",
+            "keyword:bukalapak",
+            "keyword:lazada",
+            "keyword:blibli",
+            "keyword:orami",
+            "keyword:ralali",
+            "keyword:bhinneka",
+            "keyword:zalora",
+            "keyword:klikindomaret",
+            "keyword:alfagift"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "operatorseluler",
+      "routing": "CGK",
+      "list": [
+        {
+          "source": "direct",
+          "type": "plain",
+          "list": [
+            "ioh.co.id",
+            "tri.co.id",
+            "xlaxiata.co.id",
+            "axis.co.id",
+            "byu.id",
+            "telkomsel.com",
+            "myorbit.id",
+            "xl.co.id",
+            "smartfren.com",
+            "xlsmart.co.id",
+            "useinsider.com",
+            "prd-idn-telkomsel-dap.timwe.com",
+            "webportals.cachefly.net",
+            "keyword:myim3api",
+            "keyword:myim3banner",
+            "keyword:myim3-he.indosatooredoo",
+            "keyword:media.kloc",
+            "keyword:indosatooredoo",
+            "keyword:prd-idn-telkomsel-dap",
+            "keyword:xlaxiata",
+            "keyword:xlaxiata-resources"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ipcheck",
+      "routing": "CGK",
+      "list": [
+        {
+          "source": "domain-list-community",
+          "type": "v2ray",
+          "url": "https://raw.githubusercontent.com/v2fly/domain-list-community/refs/heads/master/data/test-ipv6"
+        },
+        {
+          "source": "domain-list-community",
+          "type": "v2ray",
+          "url": "https://raw.githubusercontent.com/v2fly/domain-list-community/refs/heads/master/data/ipip"
+        },
+        {
+          "source": "direct",
+          "type": "plain",
+          "list": [
+            "full:domains.google.com",
+            "full:ipv4.google.com",
+            "full:ipv6test.google.com",
+            "full:ds.metric.gstatic.com",
+            "full:v4.metric.gstatic.com",
+            "speedtest6.com",
+            "ipify.org",
+            "ip-api.com",
+            "ipapi.com",
+            "ipapi.co",
+            "ipstack.com",
+            "ipinfo.io",
+            "db-ip.com",
+            "ipgeolocation.io",
+            "ipfind.com",
+            "ipv4.global",
+            "apiip.net",
+            "truesaviours.com",
+            "ipdata.co",
+            "seeip.org",
+            "bigdatacloud.net",
+            "whoisxmlapi.com",
+            "myip.com",
+            "abstractapi.com",
+            "geoapify.com",
+            "nocodeapi.com",
+            "ipwhois.io",
+            "ipinfodb.com",
+            "whatismyip.com",
+            "freegeoip.app",
+            "whatismyipaddress.com",
+            "ip2location.com",
+            "ip2proxy.com",
+            "extreme-ip-lookup.com",
+            "geoplugin.net",
+            "fraudguard.io",
+            "infobip.com",
+            "ip.sb",
+            "positionstack.com",
+            "maxmind.com",
+            "ipregistry.co",
+            "top10vpn.com",
+            "telize.com",
+            "getgeoapi.com",
+            "pconline.com.cn",
+            "pconline.com",
+            "ip.tb",
+            "api-ipv4.ip.sb",
+            "ipleak.net",
+            "dnsleak.com",
+            "whoer.net",
+            "ipv6-test.com",
+            "dnsleaktest.com",
+            "pingtools.org",
+            "taobao.com",
+            "ttt.sh",
+            "skk.moe",
+            "ds.metric.gstatic.com",
+            "v4.metric.gstatic.com",
+            "ip.gs",
+            "iplocation.net",
+            "showmyip.com",
+            "whatismyip.uno",
+            "router-network.com",
+            "whatsmyip.org",
+            "ipcost.com",
+            "ip.me",
+            "whatismypublicip.com",
+            "ifconfig.co",
+            "bigdatacloud.com",
+            "browserleaks.com",
+            "ip4.me",
+            "ip6.me",
+            "ip6only.me",
+            "whatismyv6.com",
+            "ip4only.me",
+            "whatismyip.net",
+            "ipburger.com",
+            "what-is-my-ip.co",
+            "ipsaya.com",
+            "xmyip.com",
+            "whatismyip.network",
+            "tracemyip.org",
+            "dnschecker.org",
+            "ipconfig.in",
+            "strongleakstest.com",
+            "dns-leak.com",
+            "dnsleaktest.org",
+            "nordvpn.com",
+            "browserleaks.org",
+            "ipbase.com",
+            "criminalip.io",
+            "ipapi.is",
+            "ipdata.io",
+            "ipaddress.my",
+            "check.my",
+            "ip138.com",
+            "ip2location.io",
+            "ipwho.is",
+            "freeipapi.com"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "speedtest",
+      "routing": "SIN",
+      "list": [
+        {
+          "source": "domain-list-community",
+          "type": "v2ray",
+          "url": "https://raw.githubusercontent.com/v2fly/domain-list-community/refs/heads/master/data/ookla-speedtest"
+        },
+        {
+          "source": "direct",
+          "type": "plain",
+          "list": [
+            "speed.cloudflare.com",
+            "speed.dler.io",
+            "openspeedtest.com",
+            "cachefly.net",
+            "broadbandspeedchecker.co.uk",
+            "loadingtest.com",
+            "testmy.net",
+            "proof.ovh.net",
+            "wifiman.com",
+            "wifiman.me",
+            "uwn.com",
+            "bandwidthplace.com",
+            "real-debrid.com"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "youtube",
+      "routing": "CGK",
+      "list": [
+        {
+          "source": "domain-list-community",
+          "type": "v2ray",
+          "url": "https://raw.githubusercontent.com/v2fly/domain-list-community/refs/heads/master/data/youtube"
+        },
+        {
+          "source": "direct",
+          "type": "plain",
+          "list": [
+            "music.youtube.com"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "google",
+      "routing": "CGK",
+      "list": [
+        {
+          "source": "domain-list-community",
+          "type": "v2ray",
+          "url": "https://raw.githubusercontent.com/v2fly/domain-list-community/refs/heads/master/data/google"
+        },
+        {
+          "source": "geoip",
+          "type": "clash",
+          "url": "https://raw.githubusercontent.com/malikshi/geoip/refs/heads/release/text/google.txt"
+        }
+      ]
+    },
+    {
       "name": "whatsapp",
       "routing": "CGK",
       "list": [
@@ -12,12 +451,26 @@
         {
           "source": "direct",
           "type": "plain",
-          "list":[
-            "full:graph.whatsapp.com",
-            "full:graph.whatsapp.net",
-            "whatstun.com",
-            "suffix:whatsapp.com",
+          "list": [
             "keyword:whatsapp"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "instagram",
+      "routing": "CGK",
+      "list": [
+        {
+          "source": "domain-list-community",
+          "type": "v2ray",
+          "url": "https://raw.githubusercontent.com/v2fly/domain-list-community/refs/heads/master/data/instagram"
+        },
+        {
+          "source": "direct",
+          "type": "plain",
+          "list": [
+            "keyword:instagram"
           ]
         }
       ]
@@ -32,11 +485,6 @@
           "url": "https://raw.githubusercontent.com/v2fly/domain-list-community/refs/heads/master/data/facebook"
         },
         {
-          "source": "blackmatrix7",
-          "type": "clash",
-          "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Surge/Facebook/Facebook.list"
-        },
-        {
           "source": "geoip",
           "type": "clash",
           "url": "https://raw.githubusercontent.com/malikshi/geoip/refs/heads/release/clash/classical/facebook.txt"
@@ -44,17 +492,457 @@
         {
           "source": "direct",
           "type": "plain",
-          "list":[
-            "full:graph.malik.com",
-            "full:graph.malik.net",
-            "malik.com",
-            "suffix:whatmaliksapp.com",
-            "keyword:maliksfb",
-            "111.111.111.111/23",
-            "- '222.222.222.222/32'",
-            "IP-CIDR,123.123.123.123/21",
-            "IP-CIDR,100.100.100.100/17,no-resolve",
-            "- IP-CIDR,200.200.200.200/32"
+          "list": [
+            "keyword:facebook",
+            "keyword:fbcdn"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "twitter",
+      "routing": "CGK",
+      "list": [
+        {
+          "source": "domain-list-community",
+          "type": "v2ray",
+          "url": "https://raw.githubusercontent.com/v2fly/domain-list-community/refs/heads/master/data/twitter"
+        },
+        {
+          "source": "geoip",
+          "type": "clash",
+          "url": "https://raw.githubusercontent.com/malikshi/geoip/refs/heads/release/text/twitter.txt"
+        },
+        {
+          "source": "direct",
+          "type": "plain",
+          "list": [
+            "keyword:twitter"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "telegram",
+      "routing": "SIN",
+      "list": [
+        {
+          "source": "domain-list-community",
+          "type": "v2ray",
+          "url": "https://raw.githubusercontent.com/v2fly/domain-list-community/refs/heads/master/data/telegram"
+        },
+        {
+          "source": "geoip",
+          "type": "clash",
+          "url": "https://raw.githubusercontent.com/malikshi/geoip/refs/heads/release/text/telegram.txt"
+        },
+        {
+          "source": "direct",
+          "type": "plain",
+          "list": [
+            "keyword:telegram"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "line",
+      "routing": "CGK",
+      "list": [
+        {
+          "source": "domain-list-community",
+          "type": "v2ray",
+          "url": "https://raw.githubusercontent.com/v2fly/domain-list-community/refs/heads/master/data/line"
+        },
+        {
+          "source": "blackmatrix7",
+          "type": "clash",
+          "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Surge/Line/Line.list"
+        }
+      ]
+    },
+    {
+      "name": "reddit",
+      "routing": "SIN",
+      "list": [
+        {
+          "source": "domain-list-community",
+          "type": "v2ray",
+          "url": "https://raw.githubusercontent.com/v2fly/domain-list-community/refs/heads/master/data/reddit"
+        },
+        {
+          "source": "blackmatrix7",
+          "type": "clash",
+          "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Surge/Reddit/Reddit.list"
+        }
+      ]
+    },
+    {
+      "name": "yandex",
+      "routing": "SIN",
+      "list": [
+        {
+          "source": "domain-list-community",
+          "type": "v2ray",
+          "url": "https://raw.githubusercontent.com/v2fly/domain-list-community/refs/heads/master/data/yandex"
+        },
+        {
+          "source": "blackmatrix7",
+          "type": "clash",
+          "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Surge/Yandex/Yandex.list"
+        }
+      ]
+    },
+    {
+      "name": "microsoft",
+      "routing": "SIN",
+      "list": [
+        {
+          "source": "domain-list-community",
+          "type": "v2ray",
+          "url": "https://raw.githubusercontent.com/v2fly/domain-list-community/refs/heads/master/data/microsoft"
+        },
+        {
+          "source": "blackmatrix7",
+          "type": "clash",
+          "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Surge/Microsoft/Microsoft.list"
+        }
+      ]
+    },
+    {
+      "name": "riot",
+      "routing": "CGK",
+      "list": [
+        {
+          "source": "domain-list-community",
+          "type": "v2ray",
+          "url": "https://raw.githubusercontent.com/v2fly/domain-list-community/refs/heads/master/data/riot"
+        },
+        {
+          "source": "blackmatrix7",
+          "type": "clash",
+          "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Surge/Riot/Riot.list"
+        }
+      ]
+    },
+    {
+      "name": "steam",
+      "routing": "CGK",
+      "list": [
+        {
+          "source": "domain-list-community",
+          "type": "v2ray",
+          "url": "https://raw.githubusercontent.com/v2fly/domain-list-community/refs/heads/master/data/steam"
+        },
+        {
+          "source": "blackmatrix7",
+          "type": "clash",
+          "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Surge/Steam/Steam.list"
+        }
+      ]
+    },
+    {
+      "name": "netflix",
+      "routing": "CGK",
+      "list": [
+        {
+          "source": "domain-list-community",
+          "type": "v2ray",
+          "url": "https://raw.githubusercontent.com/v2fly/domain-list-community/refs/heads/master/data/netflix"
+        },
+        {
+          "source": "geoip",
+          "type": "clash",
+          "url": "https://raw.githubusercontent.com/malikshi/geoip/refs/heads/release/text/netflix.txt"
+        },
+        {
+          "source": "direct",
+          "type": "plain",
+          "list": [
+            "keyword:apiproxy-device-prod-nlb-",
+            "keyword:dualstack.apiproxy-",
+            "keyword:dualstack.ichnaea-web-",
+            "keyword:netflixdnstest"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "catchplay",
+      "routing": "CGK",
+      "list": [
+        {
+          "source": "domain-list-community",
+          "type": "v2ray",
+          "url": "https://raw.githubusercontent.com/v2fly/domain-list-community/refs/heads/master/data/catchplay"
+        },
+        {
+          "source": "direct",
+          "type": "plain",
+          "list": [
+            "keyword:catchplay"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "hotstar",
+      "routing": "CGK",
+      "list": [
+        {
+          "source": "domain-list-community",
+          "type": "v2ray",
+          "url": "https://raw.githubusercontent.com/v2fly/domain-list-community/refs/heads/master/data/hotstar"
+        },
+        {
+          "source": "direct",
+          "type": "plain",
+          "list": [
+            "keyword:hotstar"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "disney",
+      "routing": "CGK",
+      "list": [
+        {
+          "source": "blackmatrix7",
+          "type": "clash",
+          "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Surge/Disney/Disney.list"
+        },
+        {
+          "source": "direct",
+          "type": "plain",
+          "list": [
+            "keyword:disney"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "spotify",
+      "routing": "CGK",
+      "list": [
+        {
+          "source": "domain-list-community",
+          "type": "v2ray",
+          "url": "https://raw.githubusercontent.com/v2fly/domain-list-community/refs/heads/master/data/spotify"
+        },
+        {
+          "source": "direct",
+          "type": "plain",
+          "list": [
+            "keyword:spotify"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "viu",
+      "routing": "CGK",
+      "list": [
+        {
+          "source": "domain-list-community",
+          "type": "v2ray",
+          "url": "https://raw.githubusercontent.com/v2fly/domain-list-community/refs/heads/master/data/viu"
+        },
+        {
+          "source": "direct",
+          "type": "plain",
+          "list": [
+            "viu.com",
+            "viu.tv",
+            "viuapi.io",
+            "full:viu-static.akamaized.net",
+            "full:gcpvuclip-a.akamaihd.net",
+            "full:vuclip-eip2.akamaized.net",
+            "full:vuclipi-a.akamaihd.net",
+            "keyword:viu",
+            "keyword:vuclip"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "bilibili",
+      "routing": "CGK",
+      "list": [
+        {
+          "source": "domain-list-community",
+          "type": "v2ray",
+          "url": "https://raw.githubusercontent.com/v2fly/domain-list-community/refs/heads/master/data/bilibili"
+        },
+        {
+          "source": "blackmatrix7",
+          "type": "clash",
+          "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Surge/BiliBili/BiliBili.list"
+        },
+        {
+          "source": "direct",
+          "type": "plain",
+          "list": [
+            "keyword:bilibili"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "rctiplus",
+      "routing": "CGK",
+      "list": [
+        {
+          "source": "direct",
+          "type": "plain",
+          "list": [
+            "rctiplus.com",
+            "rctiplus.id",
+            "roov.id",
+            "keyword:rcti"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "mncplus",
+      "routing": "CGK",
+      "list": [
+        {
+          "source": "direct",
+          "type": "plain",
+          "list": [
+            "mncplus.id",
+            "mncnow.id",
+            "mncplay.id",
+            "keyword:mncnow",
+            "keyword:mncplus"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "molatv",
+      "routing": "CGK",
+      "list": [
+        {
+          "source": "direct",
+          "type": "plain",
+          "list": [
+            "mola.tv",
+            "cdn.mola.tv",
+            "full:vod.cdn.mola.tv.akamaized.net",
+            "full:api.sent.tv",
+            "full:mola01.koicdn.com",
+            "keyword:molatv",
+            "keyword:mola"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "indihometv",
+      "routing": "CGK",
+      "list": [
+        {
+          "source": "direct",
+          "type": "plain",
+          "list": [
+            "useetv.com",
+            "indihometv.com",
+            "indihometv.com",
+            "useetvgo.com",
+            "keyword:useetv",
+            "keyword:indihome"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "transvision",
+      "routing": "CGK",
+      "list": [
+        {
+          "source": "direct",
+          "type": "plain",
+          "list": [
+            "cubmu.com",
+            "transvision.co.id",
+            "keyword:transvision"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "visionplus",
+      "routing": "CGK",
+      "list": [
+        {
+          "source": "direct",
+          "type": "plain",
+          "list": [
+            "visionplus.id",
+            "rmp-data.com",
+            "full:stream-cdn.mncnow.id",
+            "full:dtaarjaj1diy9.cloudfront.net",
+            "full:mrpw.ptmnc01.verspective.net",
+            "keyword:visionplus"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "wetviflix",
+      "routing": "CGK",
+      "list": [
+        {
+          "source": "direct",
+          "type": "plain",
+          "list": [
+            "wetv.qq.com",
+            "iflix-images.akamaized.net",
+            "iflix.com",
+            "v.smtcdns.com",
+            "v.smtcdns.net",
+            "vv.video.qq.com",
+            "wetv.vip",
+            "wetvinfo.com",
+            "IP-CIDR,150.109.28.51/32,no-resolve",
+            "keyword:iflix",
+            "keyword:wetv"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "vidio",
+      "routing": "CGK",
+      "list": [
+        {
+          "source": "direct",
+          "type": "plain",
+          "list": [
+            "vidio.com",
+            "prod.vidiocdn.com",
+            "secureswiftcontent.com",
+            "vidiocdn.com",
+            "vid.id",
+            "-vidio-com.akamaized.net",
+            "live-production.secureswiftcontent.com",
+            "-vidio.akamaized.net",
+            "vidio.com.edgekey.net",
+            "vidio.com.edgesuite.net",
+            "full:license-global.pallycon.com",
+            "full:media-vidio-com.akamaized.net",
+            "full:etslive-2-vidio-com.akamaized.net",
+            "full:token-media-vidio-com.akamaized.net",
+            "full:static-web-prod-vidio.akamaized.net",
+            "full:geo-id-media-vidio-com.akamaized.net",
+            "full:geo-id-tl-media-vidio-com.akamaized.net",
+            "full:static-playback-vidio-com.akamaized.net",
+            "full:live-production.secureswiftcontent.com",
+            "keyword:vidio-bein",
+            "keyword:vidio"
           ]
         }
       ]
