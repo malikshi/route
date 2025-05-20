@@ -13,14 +13,14 @@ def process_v2ray_source(url):
 
     lines = response.text.splitlines()
     domains = []
+    base_url = "/".join(url.split("/")[:-1]) + "/"
     for line in lines:
         line = line.strip()
         if not line or line.startswith("#"):
             continue
         if line.startswith("include:"):
             included_file = line.split(":")[1].strip()
-            # Assume included files are in the same directory
-            included_url = url.replace(url.split("/")[-1], included_file)
+            included_url = base_url + included_file
             included_domains = process_v2ray_source(included_url)
             domains.extend(included_domains)
         else:
