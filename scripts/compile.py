@@ -211,11 +211,21 @@ def main():
     srs_dir = os.path.join(output_dir, "srs")
     json_dir = os.path.join(output_dir, "json")
 
+    added_rules = set()
     for route in config["route"]:
         name = route["name"]
         json_data_srs, json_data_routing = generate_json(route)
         output_file_srs = os.path.join(srs_dir, f"{name}.srs")
         compile_srs(json_data_srs, output_file_srs)
+
+        # Filter out duplicate rules
+        filtered_rules = []
+        for rule in json_data_routing["rules"]:
+            if rule["PK"] not in added_rules:
+                filtered_rules.append(rule)
+                added_rules.add(rule["PK"])
+        json_data_routing["rules"] = filtered_rules
+
         output_file_json = os.path.join(json_dir, f"{name}.json")
         with open(output_file_json, "w") as f:
             json.dump(json_data_routing, f)
