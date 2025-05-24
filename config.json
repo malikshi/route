@@ -42,6 +42,26 @@
       ]
     },
     {
+      "name": "controld",
+      "routing": "CGK",
+      "list": [
+        {
+          "source": "direct",
+          "type": "plain",
+          "list": [
+            "controld.com",
+            "dns.controld.com",
+            "keyword:controld"
+          ]
+        },
+        {
+          "source": "ASN",
+          "type": "clash",
+          "url": "https://raw.githubusercontent.com/malikshi/ASN/refs/heads/main/asn398962.txt"
+        }
+      ]
+    },
+    {
       "name": "doh",
       "routing": "BLOCK",
       "list": [
@@ -54,25 +74,6 @@
           "source": "dns_ip",
           "type": "clash",
           "url": "https://raw.githubusercontent.com/malikshi/dns_ip/refs/heads/main/ip-dns-nocdn-prefix.txt"
-        }
-      ]
-    },
-    {
-      "name": "controld",
-      "routing": "CGK",
-      "list": [
-        {
-          "source": "direct",
-          "type": "plain",
-          "list": [
-            "controld.com",
-            "keyword:controld"
-          ]
-        },
-        {
-          "source": "ASN",
-          "type": "clash",
-          "url": "https://raw.githubusercontent.com/malikshi/ASN/refs/heads/main/asn398962.txt"
         }
       ]
     },
