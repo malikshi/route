@@ -214,10 +214,10 @@ def generate_json(i, route):
     for domain in domains["domain"]:
         json_data_routing["rules"].append({"PK": domain, "action": routing_action})
     for domain_suffix in rule["domain_suffix"]:
-        if '.' not in domain_suffix:
-            json_data_routing["rules"].append({"PK": f"*.{domain_suffix}", "action": routing_action})
-        else:
+        if not domain_suffix.startswith('.'):
             json_data_routing["rules"].append({"PK": domain_suffix, "action": routing_action})
+        else:
+            json_data_routing["rules"].append({"PK": f"*.{domain_suffix}", "action": routing_action})
 
     return json_data_srs, json_data_routing
 
