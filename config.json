@@ -376,7 +376,7 @@
       ]
     },
     {
-      "name": "speedtest",
+      "name": "rule-speedtest",
       "routing": "SIN",
       "list": [
         {
@@ -400,7 +400,15 @@
             "wifiman.me",
             "uwn.com",
             "bandwidthplace.com",
-            "real-debrid.com"
+            "real-debrid.com",
+            "nperf.com",
+            "keyword:speedtest",
+            "keyword:speedtestcustom",
+            "keyword:openspeedtest",
+            "keyword:speedchecker",
+            "keyword:iperf",
+            "keyword:nperf",
+            "keyword:testspeed"
           ]
         }
       ]
@@ -517,7 +525,8 @@
           "source": "direct",
           "type": "plain",
           "list": [
-            "keyword:twitter"
+            "keyword:twitter",
+            "keyword:.x.com"
           ]
         }
       ]
@@ -558,86 +567,6 @@
           "source": "blackmatrix7",
           "type": "clash",
           "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Surge/Line/Line.list"
-        }
-      ]
-    },
-    {
-      "name": "reddit",
-      "routing": "SIN",
-      "list": [
-        {
-          "source": "domain-list-community",
-          "type": "v2ray",
-          "url": "https://raw.githubusercontent.com/v2fly/domain-list-community/refs/heads/master/data/reddit"
-        },
-        {
-          "source": "blackmatrix7",
-          "type": "clash",
-          "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Surge/Reddit/Reddit.list"
-        }
-      ]
-    },
-    {
-      "name": "yandex",
-      "routing": "SIN",
-      "list": [
-        {
-          "source": "domain-list-community",
-          "type": "v2ray",
-          "url": "https://raw.githubusercontent.com/v2fly/domain-list-community/refs/heads/master/data/yandex"
-        },
-        {
-          "source": "blackmatrix7",
-          "type": "clash",
-          "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Surge/Yandex/Yandex.list"
-        }
-      ]
-    },
-    {
-      "name": "microsoft",
-      "routing": "SIN",
-      "list": [
-        {
-          "source": "domain-list-community",
-          "type": "v2ray",
-          "url": "https://raw.githubusercontent.com/v2fly/domain-list-community/refs/heads/master/data/microsoft"
-        },
-        {
-          "source": "blackmatrix7",
-          "type": "clash",
-          "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Surge/Microsoft/Microsoft.list"
-        }
-      ]
-    },
-    {
-      "name": "riot",
-      "routing": "CGK",
-      "list": [
-        {
-          "source": "domain-list-community",
-          "type": "v2ray",
-          "url": "https://raw.githubusercontent.com/v2fly/domain-list-community/refs/heads/master/data/riot"
-        },
-        {
-          "source": "blackmatrix7",
-          "type": "clash",
-          "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Surge/Riot/Riot.list"
-        }
-      ]
-    },
-    {
-      "name": "steam",
-      "routing": "CGK",
-      "list": [
-        {
-          "source": "domain-list-community",
-          "type": "v2ray",
-          "url": "https://raw.githubusercontent.com/v2fly/domain-list-community/refs/heads/master/data/steam"
-        },
-        {
-          "source": "blackmatrix7",
-          "type": "clash",
-          "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Surge/Steam/Steam.list"
         }
       ]
     },
@@ -944,6 +873,125 @@
             "keyword:vidio-bein",
             "keyword:vidio"
           ]
+        }
+      ]
+    },
+    {
+      "name": "tlds-id",
+      "routing": "CGK",
+      "list": [
+        {
+          "source": "direct",
+          "type": "plain",
+          "list": [
+            "*.id",
+            "*.co.id",
+            "*.ac.id",
+            "*.or.id",
+            "*.go.id",
+            "*.my.id",
+            "*.web.id",
+            "*.biz.id",
+            "*.net.id",
+            "*.mil.id",
+            "*.sch.id",
+            "*.desa.id",
+            "*.ponpes.id",
+            "regexp:\\.co\\.id$",
+            "regexp:\\.ac\\.id$",
+            "regexp:\\.or\\.id$",
+            "regexp:\\.go\\.id$",
+            "regexp:\\.my\\.id$",
+            "regexp:\\.web\\.id$",
+            "regexp:\\.biz\\.id$",
+            "regexp:\\.net\\.id$",
+            "regexp:\\.mil\\.id$",
+            "regexp:\\.sch\\.id$",
+            "regexp:\\.desa\\.id$",
+            "regexp:\\.ponpes\\.id$",
+            "regexp:\\.id$",
+            "regexp:\\.(co|ac|or|go|my|web|biz|net|mil|sch|desa|ponpes)?\\.id$"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "reddit",
+      "routing": "SIN",
+      "list": [
+        {
+          "source": "domain-list-community",
+          "type": "v2ray",
+          "url": "https://raw.githubusercontent.com/v2fly/domain-list-community/refs/heads/master/data/reddit"
+        },
+        {
+          "source": "blackmatrix7",
+          "type": "clash",
+          "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Surge/Reddit/Reddit.list"
+        }
+      ]
+    },
+    {
+      "name": "yandex",
+      "routing": "SIN",
+      "list": [
+        {
+          "source": "domain-list-community",
+          "type": "v2ray",
+          "url": "https://raw.githubusercontent.com/v2fly/domain-list-community/refs/heads/master/data/yandex"
+        },
+        {
+          "source": "blackmatrix7",
+          "type": "clash",
+          "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Surge/Yandex/Yandex.list"
+        }
+      ]
+    },
+    {
+      "name": "microsoft",
+      "routing": "SIN",
+      "list": [
+        {
+          "source": "domain-list-community",
+          "type": "v2ray",
+          "url": "https://raw.githubusercontent.com/v2fly/domain-list-community/refs/heads/master/data/microsoft"
+        },
+        {
+          "source": "blackmatrix7",
+          "type": "clash",
+          "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Surge/Microsoft/Microsoft.list"
+        }
+      ]
+    },
+    {
+      "name": "riot",
+      "routing": "CGK",
+      "list": [
+        {
+          "source": "domain-list-community",
+          "type": "v2ray",
+          "url": "https://raw.githubusercontent.com/v2fly/domain-list-community/refs/heads/master/data/riot"
+        },
+        {
+          "source": "blackmatrix7",
+          "type": "clash",
+          "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Surge/Riot/Riot.list"
+        }
+      ]
+    },
+    {
+      "name": "steam",
+      "routing": "CGK",
+      "list": [
+        {
+          "source": "domain-list-community",
+          "type": "v2ray",
+          "url": "https://raw.githubusercontent.com/v2fly/domain-list-community/refs/heads/master/data/steam"
+        },
+        {
+          "source": "blackmatrix7",
+          "type": "clash",
+          "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Surge/Steam/Steam.list"
         }
       ]
     }
