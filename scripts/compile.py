@@ -180,6 +180,9 @@ def generate_json(i, route):
         for key in domains
         if domains[key]
     }
+    # Add dot (.) to domain suffixes in json_data_srs
+    rule["domain_suffix"] = [f".{domain_suffix}" if '.' not in domain_suffix else domain_suffix for domain_suffix in rule.get("domain_suffix", [])]
+
     if ip_cidrs["ipv4"] or ip_cidrs["ipv6"]:
         rule["ip_cidr"] = ip_cidrs["ipv4"] + ip_cidrs["ipv6"]
     if ports:
@@ -210,8 +213,11 @@ def generate_json(i, route):
 
     for domain in domains["domain"]:
         json_data_routing["rules"].append({"PK": domain, "action": routing_action})
-    for domain_suffix in domains["domain_suffix"]:
-        json_data_routing["rules"].append({"PK": domain_suffix, "action": routing_action})
+    for domain_suffix in rule["domain_suffix"]:
+        if '.' not in domain_suffix:
+            json_data_routing["rules"].append({"PK": f"*.{domain_suffix}", "action": routing_action})
+        else:
+            json_data_routing["rules"].append({"PK": domain_suffix, "action": routing_action})
 
     return json_data_srs, json_data_routing
 
