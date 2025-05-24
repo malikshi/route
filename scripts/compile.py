@@ -228,17 +228,24 @@ def main():
         return
 
     output_dir = "release"
-    os.makedirs(os.path.join(output_dir, "srs"), exist_ok=True)
+    os.makedirs(os.path.join(output_dir, "srs", "convert"), exist_ok=True)
+    os.makedirs(os.path.join(output_dir, "srs", "json"), exist_ok=True)
     os.makedirs(os.path.join(output_dir, "json"), exist_ok=True)
-    srs_dir = os.path.join(output_dir, "srs")
+    srs_dir = os.path.join(output_dir, "srs", "convert")
+    srs_json_dir = os.path.join(output_dir, "srs", "json")
     json_dir = os.path.join(output_dir, "json")
 
     added_rules = set()
-    for route in config["route"]:
+    for i, route in enumerate(config["route"]):
         name = route["name"]
         json_data_srs, json_data_routing = generate_json(route)
-        output_file_srs = os.path.join(srs_dir, f"{name}.srs")
+        output_file_srs = os.path.join(srs_dir, f"{i:03}_{name}.srs")
+        output_file_srs_json = os.path.join(srs_json_dir, f"{i:03}_{name}.json")
+        output_file_json = os.path.join(json_dir, f"{i:03}_{name}.json")
+
         compile_srs(json_data_srs, output_file_srs)
+        with open(output_file_srs_json, "w") as f:
+            json.dump(json_data_srs, f)
 
         # Filter out duplicate rules
         filtered_rules = []
@@ -248,7 +255,6 @@ def main():
                 added_rules.add(rule["PK"])
         json_data_routing["rules"] = filtered_rules
 
-        output_file_json = os.path.join(json_dir, f"{name}.json")
         with open(output_file_json, "w") as f:
             json.dump(json_data_routing, f)
 
