@@ -48,6 +48,8 @@ def process_v2ray_source(url):
 def process_plain_source(list):
     domains = []
     ip_cidrs = []
+    ports = []
+    port_ranges = []
     for item in list:
         item = item.strip()
         if not item or item.startswith("#"):
@@ -65,10 +67,16 @@ def process_plain_source(list):
                 ip_cidrs.append(ip_cidr)
             else:
                 ip_cidrs.append(item)
+        elif item.startswith("port:"):
+            port = item.split(":")[1].strip()
+            ports.append(int(port))
+        elif item.startswith("port-range:"):
+            port_range = item.split(":")[1].strip()
+            port_ranges.append(port_range)
         else:
             # Remove any attributes that start with "@"
             parts = item.split()
-            domain_info = parts[0]
+            domain_info = item
             if domain_info.startswith("suffix:"):
                 domain_suffix = domain_info.split(":")[1].strip()
                 domains.append(f"suffix:{domain_suffix}")
@@ -86,7 +94,7 @@ def process_plain_source(list):
                 domains.append(full_domain)
             else:
                 domains.append(f"suffix:{domain_info}")
-    return domains, ip_cidrs
+    return domains, ip_cidrs, ports, port_ranges
 
 
 def process_clash_source(url):
@@ -128,14 +136,20 @@ def process_clash_source(url):
 def generate_json(route):
     domains = {"domain": [], "domain_suffix": [], "domain_keyword": [], "domain_regex": []}
     ip_cidrs = {"ipv4": [], "ipv6": []}
+    ports = []
+    port_ranges = []
     for source in route["list"]:
         if source["type"] == "v2ray":
             source_domains = process_v2ray_source(source["url"])
             source_ip_cidrs = []
+            source_ports = []
+            source_port_ranges = []
         elif source["type"] == "clash":
             source_domains, source_ip_cidrs = process_clash_source(source["url"])
+            source_ports = []
+            source_port_ranges = []
         elif source["type"] == "plain":
-            source_domains, source_ip_cidrs = process_plain_source(source["list"])
+            source_domains, source_ip_cidrs, source_ports, source_port_ranges = process_plain_source(source["list"])
         for domain in source_domains:
             if domain.startswith("suffix:"):
                 domains["domain_suffix"].append(domain.split(":")[1])
@@ -150,12 +164,16 @@ def generate_json(route):
                 ip_cidrs["ipv6"].append(ip_cidr)
             else:
                 ip_cidrs["ipv4"].append(ip_cidr)
+        ports.extend(source_ports)
+        port_ranges.extend(source_port_ranges)
 
     # Remove duplicates and sort
     for key in domains:
         domains[key] = sorted(list(set(domains[key])))
     ip_cidrs["ipv4"] = sorted(list(set(ip_cidrs["ipv4"])))
     ip_cidrs["ipv6"] = sorted(list(set(ip_cidrs["ipv6"])))
+    ports = sorted(list(set(ports)))
+    port_ranges = sorted(list(set(port_ranges)))
 
     rule = {
         key: domains[key]
@@ -164,6 +182,10 @@ def generate_json(route):
     }
     if ip_cidrs["ipv4"] or ip_cidrs["ipv6"]:
         rule["ip_cidr"] = ip_cidrs["ipv4"] + ip_cidrs["ipv6"]
+    if ports:
+        rule["port"] = ports
+    if port_ranges:
+        rule["port_range"] = port_ranges
 
     json_data_srs = {
         "version": 3,
