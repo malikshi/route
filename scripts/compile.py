@@ -192,23 +192,26 @@ def generate_json(route):
         "rules": [rule]
     }
 
-    rules = []
-    for domain in domains["domain"]:
-        rules.append({"PK": domain, "action": {"do": 3, "via": route["routing"], "status": 1}})
-    for domain_suffix in domains["domain_suffix"]:
-        rules.append({"PK": domain_suffix, "action": {"do": 3, "via": route["routing"], "status": 1}})
+    if route["routing"] in ["BYPASS", "BLOCK"]:
+        routing_action = {
+            "BYPASS": {"do": 1, "status": 1},
+            "BLOCK": {"do": 0, "status": 1},
+        }[route["routing"]]
+    else:
+        routing_action = {"do": 3, "via": route["routing"], "status": 1}
 
     json_data_routing = {
         "group": {
             "group": route["name"],
-            "action": {
-                "do": 3,
-                "via": route["routing"],
-                "status": 1
-            }
+            "action": routing_action
         },
-        "rules": rules
+        "rules": []
     }
+
+    for domain in domains["domain"]:
+        json_data_routing["rules"].append({"PK": domain, "action": routing_action})
+    for domain_suffix in domains["domain_suffix"]:
+        json_data_routing["rules"].append({"PK": domain_suffix, "action": routing_action})
 
     return json_data_srs, json_data_routing
 
