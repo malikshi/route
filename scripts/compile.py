@@ -133,7 +133,7 @@ def process_clash_source(url):
     return domains, ip_cidrs
 
 
-def generate_json(route):
+def generate_json(i, route):
     domains = {"domain": [], "domain_suffix": [], "domain_keyword": [], "domain_regex": []}
     ip_cidrs = {"ipv4": [], "ipv6": []}
     ports = []
@@ -202,7 +202,7 @@ def generate_json(route):
 
     json_data_routing = {
         "group": {
-            "group": route["name"],
+            "group": f"{i:03}_{route['name']}",
             "action": routing_action
         },
         "rules": []
@@ -241,7 +241,7 @@ def main():
     added_rules = set()
     for i, route in enumerate(config["route"]):
         name = route["name"]
-        json_data_srs, json_data_routing = generate_json(route)
+        json_data_srs, json_data_routing = generate_json(i, route)
         output_file_srs = os.path.join(srs_dir, f"{i:03}_{name}.srs")
         output_file_srs_json = os.path.join(srs_json_dir, f"{i:03}_{name}.json")
         output_file_json = os.path.join(json_dir, f"{i:03}_{name}.json")
