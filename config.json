@@ -1,6 +1,81 @@
 {
   "route": [
     {
+      "name": "dns",
+      "routing": "CGK",
+      "list": [
+        {
+          "source": "direct",
+          "type": "plain",
+          "list": [
+            "1.1.1.1",
+            "1.0.0.1",
+            "8.8.8.8",
+            "8.8.4.4",
+            "9.9.9.9",
+            "149.112.112.112",
+            "208.67.222.222",
+            "208.67.220.220",
+            "2606:4700:4700::1111",
+            "2606:4700:4700::1001",
+            "2001:4860:4860::8888",
+            "2001:4860:4860::8844",
+            "2620:fe::fe",
+            "2620:fe::fe:9",
+            "2620:119:35::35",
+            "2620:119:53::53",
+            "114.114.114.114",
+            "114.114.115.115",
+            "119.29.29.29",
+            "180.76.76.76",
+            "223.5.5.5",
+            "223.6.6.6",
+            "2400:da00::6666",
+            "2400:da00::6667",
+            "2400:da00::8888",
+            "2400:da00::8889",
+            "2400:da00::5555",
+            "2400:da00::6666"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "doh",
+      "routing": "CGK",
+      "list": [
+        {
+          "source": "dns_ip",
+          "type": "v2ray",
+          "url": "https://raw.githubusercontent.com/malikshi/dns_ip/refs/heads/main/domains-doh.txt"
+        },
+        {
+          "source": "dns_ip",
+          "type": "clash",
+          "url": "https://raw.githubusercontent.com/malikshi/dns_ip/refs/heads/main/ip-dns-nocdn.txt"
+        }
+      ]
+    },
+    {
+      "name": "controld",
+      "routing": "CGK",
+      "list": [
+        {
+          "source": "direct",
+          "type": "plain",
+          "list": [
+            "controld.com",
+            "keyword:controld"
+          ]
+        },
+        {
+          "source": "ASN",
+          "type": "clash",
+          "url": "https://raw.githubusercontent.com/malikshi/ASN/refs/heads/main/asn398962.txt"
+        }
+      ]
+    },
+    {
       "name": "googleapis",
       "routing": "CGK",
       "list": [
