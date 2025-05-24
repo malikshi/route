@@ -2,7 +2,7 @@
   "route": [
     {
       "name": "dns",
-      "routing": "CGK",
+      "routing": "BYPASS",
       "list": [
         {
           "source": "direct",
@@ -43,7 +43,7 @@
     },
     {
       "name": "doh",
-      "routing": "CGK",
+      "routing": "BLOCK",
       "list": [
         {
           "source": "dns_ip",
@@ -334,7 +334,7 @@
     },
     {
       "name": "ipcheck",
-      "routing": "CGK",
+      "routing": "KUL",
       "list": [
         {
           "source": "domain-list-community",
@@ -508,7 +508,7 @@
     },
     {
       "name": "rule-speedtest",
-      "routing": "SIN",
+      "routing": "BYPASS",
       "list": [
         {
           "source": "domain-list-community",
@@ -546,7 +546,7 @@
     },
     {
       "name": "youtube",
-      "routing": "CGK",
+      "routing": "BYPASS",
       "list": [
         {
           "source": "domain-list-community",
@@ -564,7 +564,7 @@
     },
     {
       "name": "google",
-      "routing": "CGK",
+      "routing": "BYPASS",
       "list": [
         {
           "source": "domain-list-community",
@@ -598,7 +598,7 @@
     },
     {
       "name": "instagram",
-      "routing": "CGK",
+      "routing": "BYPASS",
       "list": [
         {
           "source": "domain-list-community",
@@ -616,7 +616,7 @@
     },
     {
       "name": "facebook",
-      "routing": "SIN",
+      "routing": "BYPASS",
       "list": [
         {
           "source": "domain-list-community",
@@ -640,7 +640,7 @@
     },
     {
       "name": "twitter",
-      "routing": "CGK",
+      "routing": "BYPASS",
       "list": [
         {
           "source": "domain-list-community",
@@ -664,7 +664,7 @@
     },
     {
       "name": "telegram",
-      "routing": "SIN",
+      "routing": "BYPASS",
       "list": [
         {
           "source": "domain-list-community",
@@ -1048,7 +1048,7 @@
     },
     {
       "name": "reddit",
-      "routing": "SIN",
+      "routing": "BYPASS",
       "list": [
         {
           "source": "domain-list-community",
@@ -1064,7 +1064,7 @@
     },
     {
       "name": "yandex",
-      "routing": "SIN",
+      "routing": "BYPASS",
       "list": [
         {
           "source": "domain-list-community",
@@ -1080,7 +1080,7 @@
     },
     {
       "name": "microsoft",
-      "routing": "SIN",
+      "routing": "BYPASS",
       "list": [
         {
           "source": "domain-list-community",
@@ -1096,7 +1096,7 @@
     },
     {
       "name": "riot",
-      "routing": "CGK",
+      "routing": "BYPASS",
       "list": [
         {
           "source": "domain-list-community",
@@ -1112,7 +1112,7 @@
     },
     {
       "name": "steam",
-      "routing": "CGK",
+      "routing": "BYPASS",
       "list": [
         {
           "source": "domain-list-community",
