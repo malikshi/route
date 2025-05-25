@@ -300,6 +300,13 @@
             "update_interval": "3h",
             "tag": "042_remotevpn",
             "url": "https://cdn.jsdelivr.net/gh/malikshi/route@release/srs/convert/remotevpn.srs"
+        },
+        {
+            "type": "remote",
+            "format": "binary",
+            "update_interval": "3h",
+            "tag": "043_tiktok",
+            "url": "https://cdn.jsdelivr.net/gh/malikshi/route@release/srs/convert/tiktok.srs"
         }
     ]
 }
