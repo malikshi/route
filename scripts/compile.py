@@ -230,7 +230,7 @@ def compile_srs(json_data, output_file):
 def generate_readme():
     files = os.listdir("release/srs/convert")
     files.sort()
-    with open("README.md", "r") as f:
+    with open("README.tmp", "r") as f:
         readme_template = f.read()
     srs_files_section = "\n".join([f"* [{file}](https://cdn.jsdelivr.net/gh/malikshi/route@release/srs/convert/{file})" for file in files if file.endswith(".srs")])
     readme = readme_template.replace("{% for file in files %}\n* [{{ file }}](https://cdn.jsdelivr.net/gh/malikshi/route@release/srs/convert/{{ file }})\n{% endfor %}", srs_files_section)
