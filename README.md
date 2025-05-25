@@ -24,6 +24,7 @@ You can download pre-generated SRS files from the following links:
 * [controld](https://cdn.jsdelivr.net/gh/malikshi/route@release/srs/convert/controld.srs)
 * [doh](https://cdn.jsdelivr.net/gh/malikshi/route@release/srs/convert/doh.srs)
 * [googleapis](https://cdn.jsdelivr.net/gh/malikshi/route@release/srs/convert/googleapis.srs)
+* [google-ads](https://cdn.jsdelivr.net/gh/malikshi/route@release/srs/convert/google-ads.srs)
 * [bank-id](https://cdn.jsdelivr.net/gh/malikshi/route@release/srs/convert/bank-id.srs)
 * [ewallet](https://cdn.jsdelivr.net/gh/malikshi/route@release/srs/convert/ewallet.srs)
 * [marketplace](https://cdn.jsdelivr.net/gh/malikshi/route@release/srs/convert/marketplace.srs)

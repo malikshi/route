@@ -39,259 +39,266 @@
             "type": "remote",
             "format": "binary",
             "update_interval": "3h",
-            "tag": "005_bank-id",
+            "tag": "005_google-ads",
+            "url": "https://cdn.jsdelivr.net/gh/malikshi/route@release/srs/convert/google-ads.srs"
+        },
+        {
+            "type": "remote",
+            "format": "binary",
+            "update_interval": "3h",
+            "tag": "006_bank-id",
             "url": "https://cdn.jsdelivr.net/gh/malikshi/route@release/srs/convert/bank-id.srs"
         },
         {
             "type": "remote",
             "format": "binary",
             "update_interval": "3h",
-            "tag": "006_ewallet",
+            "tag": "007_ewallet",
             "url": "https://cdn.jsdelivr.net/gh/malikshi/route@release/srs/convert/ewallet.srs"
         },
         {
             "type": "remote",
             "format": "binary",
             "update_interval": "3h",
-            "tag": "007_marketplace",
+            "tag": "008_marketplace",
             "url": "https://cdn.jsdelivr.net/gh/malikshi/route@release/srs/convert/marketplace.srs"
         },
         {
             "type": "remote",
             "format": "binary",
             "update_interval": "3h",
-            "tag": "008_operatorseluler",
+            "tag": "009_operatorseluler",
             "url": "https://cdn.jsdelivr.net/gh/malikshi/route@release/srs/convert/operatorseluler.srs"
         },
         {
             "type": "remote",
             "format": "binary",
             "update_interval": "3h",
-            "tag": "009_ipcheck",
+            "tag": "010_ipcheck",
             "url": "https://cdn.jsdelivr.net/gh/malikshi/route@release/srs/convert/ipcheck.srs"
         },
         {
             "type": "remote",
             "format": "binary",
             "update_interval": "3h",
-            "tag": "010_rule-speedtest",
+            "tag": "011_rule-speedtest",
             "url": "https://cdn.jsdelivr.net/gh/malikshi/route@release/srs/convert/rule-speedtest.srs"
         },
         {
             "type": "remote",
             "format": "binary",
             "update_interval": "3h",
-            "tag": "011_youtube",
+            "tag": "012_youtube",
             "url": "https://cdn.jsdelivr.net/gh/malikshi/route@release/srs/convert/youtube.srs"
         },
         {
             "type": "remote",
             "format": "binary",
             "update_interval": "3h",
-            "tag": "012_google",
+            "tag": "013_google",
             "url": "https://cdn.jsdelivr.net/gh/malikshi/route@release/srs/convert/google.srs"
         },
         {
             "type": "remote",
             "format": "binary",
             "update_interval": "3h",
-            "tag": "013_whatsapp",
+            "tag": "014_whatsapp",
             "url": "https://cdn.jsdelivr.net/gh/malikshi/route@release/srs/convert/whatsapp.srs"
         },
         {
             "type": "remote",
             "format": "binary",
             "update_interval": "3h",
-            "tag": "014_instagram",
+            "tag": "015_instagram",
             "url": "https://cdn.jsdelivr.net/gh/malikshi/route@release/srs/convert/instagram.srs"
         },
         {
             "type": "remote",
             "format": "binary",
             "update_interval": "3h",
-            "tag": "015_facebook",
+            "tag": "016_facebook",
             "url": "https://cdn.jsdelivr.net/gh/malikshi/route@release/srs/convert/facebook.srs"
         },
         {
             "type": "remote",
             "format": "binary",
             "update_interval": "3h",
-            "tag": "016_twitter",
+            "tag": "017_twitter",
             "url": "https://cdn.jsdelivr.net/gh/malikshi/route@release/srs/convert/twitter.srs"
         },
         {
             "type": "remote",
             "format": "binary",
             "update_interval": "3h",
-            "tag": "017_telegram",
+            "tag": "018_telegram",
             "url": "https://cdn.jsdelivr.net/gh/malikshi/route@release/srs/convert/telegram.srs"
         },
         {
             "type": "remote",
             "format": "binary",
             "update_interval": "3h",
-            "tag": "018_line",
+            "tag": "019_line",
             "url": "https://cdn.jsdelivr.net/gh/malikshi/route@release/srs/convert/line.srs"
         },
         {
             "type": "remote",
             "format": "binary",
             "update_interval": "3h",
-            "tag": "019_netflix",
+            "tag": "020_netflix",
             "url": "https://cdn.jsdelivr.net/gh/malikshi/route@release/srs/convert/netflix.srs"
         },
         {
             "type": "remote",
             "format": "binary",
             "update_interval": "3h",
-            "tag": "020_catchplay",
+            "tag": "021_catchplay",
             "url": "https://cdn.jsdelivr.net/gh/malikshi/route@release/srs/convert/catchplay.srs"
         },
         {
             "type": "remote",
             "format": "binary",
             "update_interval": "3h",
-            "tag": "021_hotstar",
+            "tag": "022_hotstar",
             "url": "https://cdn.jsdelivr.net/gh/malikshi/route@release/srs/convert/hotstar.srs"
         },
         {
             "type": "remote",
             "format": "binary",
             "update_interval": "3h",
-            "tag": "022_disney",
+            "tag": "023_disney",
             "url": "https://cdn.jsdelivr.net/gh/malikshi/route@release/srs/convert/disney.srs"
         },
         {
             "type": "remote",
             "format": "binary",
             "update_interval": "3h",
-            "tag": "023_spotify",
+            "tag": "024_spotify",
             "url": "https://cdn.jsdelivr.net/gh/malikshi/route@release/srs/convert/spotify.srs"
         },
         {
             "type": "remote",
             "format": "binary",
             "update_interval": "3h",
-            "tag": "024_viu",
+            "tag": "025_viu",
             "url": "https://cdn.jsdelivr.net/gh/malikshi/route@release/srs/convert/viu.srs"
         },
         {
             "type": "remote",
             "format": "binary",
             "update_interval": "3h",
-            "tag": "025_bilibili",
+            "tag": "026_bilibili",
             "url": "https://cdn.jsdelivr.net/gh/malikshi/route@release/srs/convert/bilibili.srs"
         },
         {
             "type": "remote",
             "format": "binary",
             "update_interval": "3h",
-            "tag": "026_rctiplus",
+            "tag": "027_rctiplus",
             "url": "https://cdn.jsdelivr.net/gh/malikshi/route@release/srs/convert/rctiplus.srs"
         },
         {
             "type": "remote",
             "format": "binary",
             "update_interval": "3h",
-            "tag": "027_mncplus",
+            "tag": "028_mncplus",
             "url": "https://cdn.jsdelivr.net/gh/malikshi/route@release/srs/convert/mncplus.srs"
         },
         {
             "type": "remote",
             "format": "binary",
             "update_interval": "3h",
-            "tag": "028_molatv",
+            "tag": "029_molatv",
             "url": "https://cdn.jsdelivr.net/gh/malikshi/route@release/srs/convert/molatv.srs"
         },
         {
             "type": "remote",
             "format": "binary",
             "update_interval": "3h",
-            "tag": "029_indihometv",
+            "tag": "030_indihometv",
             "url": "https://cdn.jsdelivr.net/gh/malikshi/route@release/srs/convert/indihometv.srs"
         },
         {
             "type": "remote",
             "format": "binary",
             "update_interval": "3h",
-            "tag": "030_transvision",
+            "tag": "031_transvision",
             "url": "https://cdn.jsdelivr.net/gh/malikshi/route@release/srs/convert/transvision.srs"
         },
         {
             "type": "remote",
             "format": "binary",
             "update_interval": "3h",
-            "tag": "031_visionplus",
+            "tag": "032_visionplus",
             "url": "https://cdn.jsdelivr.net/gh/malikshi/route@release/srs/convert/visionplus.srs"
         },
         {
             "type": "remote",
             "format": "binary",
             "update_interval": "3h",
-            "tag": "032_wetviflix",
+            "tag": "033_wetviflix",
             "url": "https://cdn.jsdelivr.net/gh/malikshi/route@release/srs/convert/wetviflix.srs"
         },
         {
             "type": "remote",
             "format": "binary",
             "update_interval": "3h",
-            "tag": "033_vidio",
+            "tag": "034_vidio",
             "url": "https://cdn.jsdelivr.net/gh/malikshi/route@release/srs/convert/vidio.srs"
         },
         {
             "type": "remote",
             "format": "binary",
             "update_interval": "3h",
-            "tag": "034_streamindo",
+            "tag": "035_streamindo",
             "url": "https://cdn.jsdelivr.net/gh/malikshi/route@release/srs/convert/streamindo.srs"
         },
         {
             "type": "remote",
             "format": "binary",
             "update_interval": "3h",
-            "tag": "035_tlds-id",
+            "tag": "036_tlds-id",
             "url": "https://cdn.jsdelivr.net/gh/malikshi/route@release/srs/convert/tlds-id.srs"
         },
         {
             "type": "remote",
             "format": "binary",
             "update_interval": "3h",
-            "tag": "036_reddit",
+            "tag": "037_reddit",
             "url": "https://cdn.jsdelivr.net/gh/malikshi/route@release/srs/convert/reddit.srs"
         },
         {
             "type": "remote",
             "format": "binary",
             "update_interval": "3h",
-            "tag": "037_yandex",
+            "tag": "038_yandex",
             "url": "https://cdn.jsdelivr.net/gh/malikshi/route@release/srs/convert/yandex.srs"
         },
         {
             "type": "remote",
             "format": "binary",
             "update_interval": "3h",
-            "tag": "038_microsoft",
+            "tag": "039_microsoft",
             "url": "https://cdn.jsdelivr.net/gh/malikshi/route@release/srs/convert/microsoft.srs"
         },
         {
             "type": "remote",
             "format": "binary",
             "update_interval": "3h",
-            "tag": "039_riot",
+            "tag": "040_riot",
             "url": "https://cdn.jsdelivr.net/gh/malikshi/route@release/srs/convert/riot.srs"
         },
         {
             "type": "remote",
             "format": "binary",
             "update_interval": "3h",
-            "tag": "040_steam",
+            "tag": "041_steam",
             "url": "https://cdn.jsdelivr.net/gh/malikshi/route@release/srs/convert/steam.srs"
         },
         {
             "type": "remote",
             "format": "binary",
             "update_interval": "3h",
-            "tag": "041_remotevpn",
+            "tag": "042_remotevpn",
             "url": "https://cdn.jsdelivr.net/gh/malikshi/route@release/srs/convert/remotevpn.srs"
         }
     ]
