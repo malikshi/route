@@ -354,7 +354,7 @@
     },
     {
       "name": "operatorseluler",
-      "routing": "CGK",
+      "routing": "BYPASS",
       "list": [
         {
           "source": "direct",
