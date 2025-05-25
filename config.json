@@ -1070,6 +1070,8 @@
             "apimu.donghub.net",
             "dbmu.donghub.net",
             "loklok.video",
+            "loklok.com",
+            "loklok.*",
             "akm-cdn-play.loklok.video",
             "img.netpop.app",
             "ugc.netpop.app",
