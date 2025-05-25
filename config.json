@@ -1246,6 +1246,17 @@
           ]
         }
       ]
+    },
+    {
+      "name": "tiktok",
+      "routing": "BYPASS",
+      "list": [
+        {
+          "source": "domain-list-community",
+          "type": "v2ray",
+          "url": "https://raw.githubusercontent.com/v2fly/domain-list-community/refs/heads/master/data/tiktok"
+        }
+      ]
     }
   ]
 }
