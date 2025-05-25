@@ -227,6 +227,22 @@ def compile_srs(json_data, output_file):
         json.dump(json_data, f)
     subprocess.run(["sing-box", "rule-set", "compile", "temp.json", "-o", output_file])
 
+def generate_rule_set():
+    files = os.listdir("release/srs/convert")
+    files.sort()
+    rule_set = []
+    for file in files:
+        if file.endswith(".srs"):
+            rule_set.append({
+                "type": "remote",
+                "format": "binary",
+                "update_interval": "3h",
+                "tag": file.split(".")[0],
+                "url": f"https://cdn.jsdelivr.net/gh/malikshi/route@release/srs/convert/{file}"
+            })
+    with open("rule_set.json", "w") as f:
+        json.dump({"rule_set": rule_set}, f, indent=4)
+
 def generate_readme():
     files = os.listdir("release/srs/convert")
     files.sort()
@@ -277,6 +293,7 @@ def main():
         with open(output_file_json, "w") as f:
             json.dump(json_data_routing, f)
     
+    generate_rule_set()
     generate_readme()
 
 if __name__ == "__main__":
