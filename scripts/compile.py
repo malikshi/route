@@ -227,28 +227,24 @@ def compile_srs(json_data, output_file):
         json.dump(json_data, f)
     subprocess.run(["sing-box", "rule-set", "compile", "temp.json", "-o", output_file])
 
-def generate_rule_set():
-    files = os.listdir("release/srs/convert")
-    files.sort()
+def generate_rule_set(config):
     rule_set = []
-    for file in files:
-        if file.endswith(".srs"):
-            rule_set.append({
-                "type": "remote",
-                "format": "binary",
-                "update_interval": "3h",
-                "tag": file.split(".")[0],
-                "url": f"https://cdn.jsdelivr.net/gh/malikshi/route@release/srs/convert/{file}"
-            })
+    for i, route in enumerate(config["route"]):
+        name = route["name"]
+        rule_set.append({
+            "type": "remote",
+            "format": "binary",
+            "update_interval": "3h",
+            "tag": f"{i:03}_{name}",
+            "url": f"https://cdn.jsdelivr.net/gh/malikshi/route@release/srs/convert/{name}.srs"
+        })
     with open("rule_set.json", "w") as f:
         json.dump({"rule_set": rule_set}, f, indent=4)
 
-def generate_readme():
-    files = os.listdir("release/srs/convert")
-    files.sort()
+def generate_readme(config):
     with open("README.tmp", "r") as f:
         readme_template = f.read()
-    srs_files_section = "\n".join([f"* [{file}](https://cdn.jsdelivr.net/gh/malikshi/route@release/srs/convert/{file})" for file in files if file.endswith(".srs")])
+    srs_files_section = "\n".join([f"* [{route['name']}](https://cdn.jsdelivr.net/gh/malikshi/route@release/srs/convert/{route['name']}.srs)" for route in config["route"]])
     readme = readme_template.replace("{% for file in files %}\n* [{{ file }}](https://cdn.jsdelivr.net/gh/malikshi/route@release/srs/convert/{{ file }})\n{% endfor %}", srs_files_section)
     with open("README.md", "w") as f:
         f.write(readme)
@@ -274,8 +270,8 @@ def main():
     for i, route in enumerate(config["route"]):
         name = route["name"]
         json_data_srs, json_data_routing = generate_json(i, route)
-        output_file_srs = os.path.join(srs_dir, f"{i:03}_{name}.srs")
-        output_file_srs_json = os.path.join(srs_json_dir, f"{i:03}_{name}.json")
+        output_file_srs = os.path.join(srs_dir, f"{name}.srs")
+        output_file_srs_json = os.path.join(srs_json_dir, f"{name}.json")
         output_file_json = os.path.join(json_dir, f"{i:03}_{name}.json")
 
         compile_srs(json_data_srs, output_file_srs)
@@ -293,8 +289,8 @@ def main():
         with open(output_file_json, "w") as f:
             json.dump(json_data_routing, f)
     
-    generate_rule_set()
-    generate_readme()
+    generate_rule_set(config)
+    generate_readme(config)
 
 if __name__ == "__main__":
     main()
