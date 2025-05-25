@@ -42,6 +42,48 @@
       ]
     },
     {
+      "name": "urltest",
+      "routing": "BYPASS",
+      "list": [
+        {
+          "source": "direct",
+          "type": "plain",
+          "list": [
+            "full:keep-alv.google.com",
+            "full:www.google.com",
+            "full:www.gstatic.com",
+            "full:connectivitycheck.gstatic.com",
+            "full:cp.cloudflare.com",
+            "full:bing.com",
+            "full:api.v2fly.org",
+            "full:id-auth.bypass.id",
+            "full:hi.bonds.id",
+            "full:www.msftconnecttest.com",
+            "full:edge.microsoft.com",
+            "full:wifi.vivo.com.cn",
+            "full:detectportal.firefox.com",
+            "full:connectivitycheck.android.com",
+            "full:noisyfox.io",
+            "full:connect.rom.miui.com",
+            "full:qualcomm.com",
+            "full:elementary.io",
+            "full:g.cn",
+            "full:conn1.oppomobile.com",
+            "full:conn2.oppomobile.com",
+            "full:quasar.yandex.net",
+            "full:captive.apple.com",
+            "full:connectivity-check.ubuntu.com",
+            "full:connectivitycheck.unisoc.com",
+            "full:play.googleapis.com",
+            "full:204.ecloud.global",
+            "full:e.foundation",
+            "keyword:connectivitycheck",
+            "keyword:connectivity-check"
+          ]
+        }
+      ]
+    },
+    {
       "name": "controld",
       "routing": "CGK",
       "list": [
@@ -213,7 +255,8 @@
             "superbank.id",
             "uob.co.id",
             "victoriabank.co.id",
-            "wsyariahbukopin.co.id"
+            "wsyariahbukopin.co.id",
+            "jenius.com"
           ]
         }
       ]
@@ -238,6 +281,7 @@
             "shopeepay.co.id",
             "grab.com",
             "grabtaxi.com",
+            "flip.id",
             "keyword:gojek",
             "keyword:gopay",
             "keyword:gobiz",
@@ -1016,6 +1060,28 @@
       ]
     },
     {
+      "name": "streamindo",
+      "routing": "CGK",
+      "list": [
+        {
+          "source": "direct",
+          "type": "plain",
+          "list": [
+            "apimu.donghub.net",
+            "dbmu.donghub.net",
+            "loklok.video",
+            "akm-cdn-play.loklok.video",
+            "img.netpop.app",
+            "ugc.netpop.app",
+            "subtitles.netpop.app",
+            "donghub.net",
+            "keyword:donghub",
+            "keyword:loklok"
+          ]
+        }
+      ]
+    },
+    {
       "name": "tlds-id",
       "routing": "CGK",
       "list": [
@@ -1131,6 +1197,40 @@
           "source": "blackmatrix7",
           "type": "clash",
           "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Surge/Steam/Steam.list"
+        }
+      ]
+    },
+    {
+      "name": "remotevpn",
+      "routing": "BYPASS",
+      "list": [
+        {
+          "source": "domain-list-community",
+          "type": "v2ray",
+          "url": "https://raw.githubusercontent.com/v2fly/domain-list-community/refs/heads/master/data/tailscale"
+        },
+        {
+          "source": "domain-list-community",
+          "type": "v2ray",
+          "url": "https://raw.githubusercontent.com/v2fly/domain-list-community/refs/heads/master/data/teamviewer"
+        },
+        {
+          "source": "direct",
+          "type": "plain",
+          "list": [
+            "zerotier.com",
+            "update.argotunnel.com",
+            "cftunnel.com",
+            "h2.cftunnel.com",
+            "quic.cftunnel.com",
+            "cloudflareaccess.com",
+            "cloudflareresearch.com",
+            "net.anydesk.com",
+            "anydesk.com",
+            "teamviewer.com",
+            "keyword:zerotier",
+            "239.255.102.18/32"
+          ]
         }
       ]
     }
