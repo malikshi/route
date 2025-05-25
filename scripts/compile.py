@@ -227,6 +227,16 @@ def compile_srs(json_data, output_file):
         json.dump(json_data, f)
     subprocess.run(["sing-box", "rule-set", "compile", "temp.json", "-o", output_file])
 
+def generate_readme():
+    files = os.listdir("release/srs/convert")
+    files.sort()
+    with open("README.md", "r") as f:
+        readme_template = f.read()
+    srs_files_section = "\n".join([f"* [{file}](https://cdn.jsdelivr.net/gh/malikshi/route@release/srs/convert/{file})" for file in files if file.endswith(".srs")])
+    readme = readme_template.replace("{% for file in files %}\n* [{{ file }}](https://cdn.jsdelivr.net/gh/malikshi/route@release/srs/convert/{{ file }})\n{% endfor %}", srs_files_section)
+    with open("README.md", "w") as f:
+        f.write(readme)
+
 
 def main():
     try:
@@ -266,6 +276,8 @@ def main():
 
         with open(output_file_json, "w") as f:
             json.dump(json_data_routing, f)
+    
+    generate_readme()
 
 if __name__ == "__main__":
     main()
