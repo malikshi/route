@@ -43,8 +43,12 @@ jobs:
         git config --local user.name "github-actions[bot]"
         git add README.md
         git add rule_set.json
-        git commit -m "Update RULE-SET & README.md with latest SRS files"
-        git push origin main
+        if ! git diff --cached --quiet; then
+          git commit -m "Update RULE-SET & README.md with latest SRS files"
+          git push origin main
+        else
+          echo "No changes to README.md or rule_set.json to commit."
+        fi
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
@@ -57,7 +61,11 @@ jobs:
         git remote add origin https://${GITHUB_ACTOR}:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
         git branch -M release
         git add .
-        git commit -m "Update release branch VVIP IPTUNNELS"
-        git push -f origin release
+        if ! git diff --cached --quiet; then
+          git commit -m "Update release branch VVIP IPTUNNELS"
+          git push -f origin release
+        else
+          echo "No changes in release directory to commit."
+        fi
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
