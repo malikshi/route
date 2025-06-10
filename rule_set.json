@@ -314,6 +314,13 @@
             "update_interval": "3h",
             "tag": "044_agentpulsa",
             "url": "https://cdn.jsdelivr.net/gh/malikshi/route@release/srs/convert/agentpulsa.srs"
+        },
+        {
+            "type": "remote",
+            "format": "binary",
+            "update_interval": "3h",
+            "tag": "045_applemusic",
+            "url": "https://cdn.jsdelivr.net/gh/malikshi/route@release/srs/convert/applemusic.srs"
         }
     ]
 }
