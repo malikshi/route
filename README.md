@@ -63,6 +63,7 @@ You can download pre-generated SRS files from the following links:
 * [steam](https://cdn.jsdelivr.net/gh/malikshi/route@release/srs/convert/steam.srs)
 * [remotevpn](https://cdn.jsdelivr.net/gh/malikshi/route@release/srs/convert/remotevpn.srs)
 * [tiktok](https://cdn.jsdelivr.net/gh/malikshi/route@release/srs/convert/tiktok.srs)
+* [agentpulsa](https://cdn.jsdelivr.net/gh/malikshi/route@release/srs/convert/agentpulsa.srs)
 
 ## Notes
 * Make sure to update the `config.json` file with your own input sources and routing rules.

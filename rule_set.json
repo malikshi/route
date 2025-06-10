@@ -307,6 +307,13 @@
             "update_interval": "3h",
             "tag": "043_tiktok",
             "url": "https://cdn.jsdelivr.net/gh/malikshi/route@release/srs/convert/tiktok.srs"
+        },
+        {
+            "type": "remote",
+            "format": "binary",
+            "update_interval": "3h",
+            "tag": "044_agentpulsa",
+            "url": "https://cdn.jsdelivr.net/gh/malikshi/route@release/srs/convert/agentpulsa.srs"
         }
     ]
 }
