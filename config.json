@@ -145,6 +145,13 @@
           "source": "domain-list-community",
           "type": "v2ray",
           "url": "https://raw.githubusercontent.com/v2fly/domain-list-community/refs/heads/master/data/google-ads"
+        },
+        {
+          "source": "direct",
+          "type": "plain",
+          "list": [
+            "ads.google.com"
+          ]
         }
       ]
     },
