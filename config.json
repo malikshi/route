@@ -1312,7 +1312,7 @@
           "source": "direct",
           "type": "plain",
           "list": [
-            "regexp:(?i)(?:^|\\.) (?=[A-Z0-9-]{1,63}(?:\\.|$)) [A-Z0-9](?:[A-Z0-9-]{0,61}[A-Z0-9])? (?:(?:[A-Z0-9-]*?(?:bandar|bet|betting|bola|dewa|gacor|hoki|king|liga|raja|slot|suhu|togel|zeus|judi|casino|kasino|poker|sbobet|parlay|jackpot|qq|toto|panutantoto|bonengjitu|keristoto|istanatoto|alexistogel|olxtoto|vip|maxbet|ibcbet|cmd368|parimatch|dafabet|xbet|betway|betfair|unibet|lotto|lottery|pragmaticplay|habanero|spadegaming)-?\\d+)|(?:\\d+-?(?:bandar|bet|betting|bola|dewa|gacor|hoki|king|liga|raja|slot|suhu|togel|zeus|judi|casino|kasino|poker|sbobet|parlay|jackpot|qq|toto|panutantoto|bonengjitu|keristoto|istanatoto|alexistogel|olxtoto|vip|maxbet|ibcbet|cmd368|parimatch|dafabet|xbet|betway|betfair|unibet|lotto|lottery|pragmaticplay|habanero|spadegaming)[A-Z0-9-]*)) (?=\\.|$)"
+            "regexp:(?i)[a-z0-9-]*?(?:bandar|bet|betting|bola|dewa|gacor|hoki|king|liga|raja|slot|suhu|togel|zeus|judi|casino|kasino|poker|sbobet|parlay|jackpot|qq|toto|panutantoto|bonengjitu|keristoto|istanatoto|alexistogel|olxtoto|vip|maxbet|ibcbet|cmd368|parimatch|dafabet|xbet|betway|betfair|unibet|lotto|lottery|pragmaticplay|habanero|spadegaming)(?:-?\\d+|\\d+-?)[a-z0-9-]*"
           ]
         }
       ]
