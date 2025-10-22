@@ -19,7 +19,7 @@ def process_v2ray_source(url):
         if not line or line.startswith("#"):
             continue
         if line.startswith("include:"):
-            included_file = line.split(":")[1].strip()
+            included_file = line.split(":", 1)[1].strip()
             included_url = base_url + included_file
             included_domains = process_v2ray_source(included_url)
             domains.extend(included_domains)
@@ -28,16 +28,16 @@ def process_v2ray_source(url):
             parts = line.split()
             domain_info = parts[0]
             if domain_info.startswith("domain:"):
-                domain = domain_info.split(":")[1]
+                domain = domain_info.split(":", 1)[1]
                 domains.append(domain)
             elif domain_info.startswith("keyword:"):
-                keyword = domain_info.split(":")[1]
+                keyword = domain_info.split(":", 1)[1]
                 domains.append(f"keyword:{keyword}")
             elif domain_info.startswith("regexp:"):
-                regexp = domain_info.split(":")[1]
+                regexp = domain_info.split(":", 1)[1]
                 domains.append(f"regexp:{regexp}")
             elif domain_info.startswith("full:"):
-                full_domain = domain_info.split(":")[1]
+                full_domain = domain_info.split(":", 1)[1]
                 domains.append(full_domain)
             else:
                 # Assume it's a domain suffix
@@ -68,29 +68,29 @@ def process_plain_source(list):
             else:
                 ip_cidrs.append(item)
         elif item.startswith("port:"):
-            port = item.split(":")[1].strip()
+            port = item.split(":", 1)[1].strip()
             ports.append(int(port))
         elif item.startswith("port-range:"):
-            port_range = item.split(":")[1].strip()
+            port_range = item.split(":", 1)[1].strip()
             port_ranges.append(port_range)
         else:
             # Remove any attributes that start with "@"
             parts = item.split()
             domain_info = item
             if domain_info.startswith("suffix:"):
-                domain_suffix = domain_info.split(":")[1].strip()
+                domain_suffix = domain_info.split(":", 1)[1].strip()
                 domains.append(f"suffix:{domain_suffix}")
             elif domain_info.startswith("domain:"):
-                domain = domain_info.split(":")[1].strip()
+                domain = domain_info.split(":", 1)[1].strip()
                 domains.append(domain)
             elif domain_info.startswith("keyword:"):
-                keyword = domain_info.split(":")[1].strip()
+                keyword = domain_info.split(":", 1)[1].strip()
                 domains.append(f"keyword:{keyword}")
             elif domain_info.startswith("regexp:"):
-                regexp = domain_info.split(":")[1].strip()
+                regexp = domain_info.split(":", 1)[1].strip()
                 domains.append(f"regexp:{regexp}")
             elif domain_info.startswith("full:"):
-                full_domain = domain_info.split(":")[1].strip()
+                full_domain = domain_info.split(":", 1)[1].strip()
                 domains.append(full_domain)
             else:
                 domains.append(f"suffix:{domain_info}")
@@ -152,11 +152,11 @@ def generate_json(i, route):
             source_domains, source_ip_cidrs, source_ports, source_port_ranges = process_plain_source(source["list"])
         for domain in source_domains:
             if domain.startswith("suffix:"):
-                domains["domain_suffix"].append(domain.split(":")[1])
+                domains["domain_suffix"].append(domain.split(":", 1)[1])
             elif domain.startswith("keyword:"):
-                domains["domain_keyword"].append(domain.split(":")[1])
+                domains["domain_keyword"].append(domain.split(":", 1)[1])
             elif domain.startswith("regexp:"):
-                domains["domain_regex"].append(domain.split(":")[1])
+                domains["domain_regex"].append(domain.split(":", 1)[1])
             else:
                 domains["domain"].append(domain)
         for ip_cidr in source_ip_cidrs:
@@ -288,7 +288,7 @@ def main():
 
         with open(output_file_json, "w") as f:
             json.dump(json_data_routing, f)
-    
+
     generate_rule_set(config)
     generate_readme(config)
 
