@@ -328,6 +328,13 @@
             "update_interval": "3h",
             "tag": "046_threads",
             "url": "https://cdn.jsdelivr.net/gh/malikshi/route@release/srs/convert/threads.srs"
+        },
+        {
+            "type": "remote",
+            "format": "binary",
+            "update_interval": "3h",
+            "tag": "047_antijudol",
+            "url": "https://cdn.jsdelivr.net/gh/malikshi/route@release/srs/convert/antijudol.srs"
         }
     ]
 }

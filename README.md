@@ -66,6 +66,7 @@ You can download pre-generated SRS files from the following links:
 * [agentpulsa](https://cdn.jsdelivr.net/gh/malikshi/route@release/srs/convert/agentpulsa.srs)
 * [applemusic](https://cdn.jsdelivr.net/gh/malikshi/route@release/srs/convert/applemusic.srs)
 * [threads](https://cdn.jsdelivr.net/gh/malikshi/route@release/srs/convert/threads.srs)
+* [antijudol](https://cdn.jsdelivr.net/gh/malikshi/route@release/srs/convert/antijudol.srs)
 
 ## Notes
 * Make sure to update the `config.json` file with your own input sources and routing rules.
