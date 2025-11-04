@@ -116,6 +116,13 @@
           "source": "dns_ip",
           "type": "clash",
           "url": "https://raw.githubusercontent.com/malikshi/dns_ip/refs/heads/main/ip-dns-nocdn-prefix.txt"
+        },
+        {
+          "source": "direct",
+          "type": "plain",
+          "list": [
+            "dns.arapurayil.com"
+          ]
         }
       ]
     },
