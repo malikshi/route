@@ -1284,7 +1284,8 @@
           "source": "direct",
           "type": "plain",
           "list": [
-            "isipulsa.web.id"
+            "isipulsa.web.id",
+            "orderkuota.com"
           ]
         }
       ]
