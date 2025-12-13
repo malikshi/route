@@ -1,0 +1,1 @@
+{"group": {"group": "002_controld", "action": {"do": 3, "via": "CGK", "status": 1}}, "rules": [{"PK": "controld.com", "action": {"do": 3, "via": "CGK", "status": 1}}, {"PK": "dns.controld.com", "action": {"do": 3, "via": "CGK", "status": 1}}]}
