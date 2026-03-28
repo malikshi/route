@@ -1412,7 +1412,7 @@
         {
           "source": "geoip",
           "type": "clash",
-          "url": "https://raw.githubusercontent.com/Loyalsoldier/geoip/refs/heads/release/text/id.txt"
+          "url": "https://raw.githubusercontent.com/malikshi/geoip/refs/heads/release/text/id.txt"
         }
       ]
     }
