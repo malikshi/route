@@ -347,8 +347,8 @@
             "type": "remote",
             "format": "binary",
             "update_interval": "3h",
-            "tag": "049_firewall",
-            "url": "https://cdn.jsdelivr.net/gh/malikshi/route@release/srs/convert/firewall.srs"
+            "tag": "049_geoip-firewall",
+            "url": "https://cdn.jsdelivr.net/gh/malikshi/route@release/srs/convert/geoip-firewall.srs"
         },
         {
             "type": "remote",

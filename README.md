@@ -68,7 +68,7 @@ You can download pre-generated SRS files from the following links:
 * [threads](https://cdn.jsdelivr.net/gh/malikshi/route@release/srs/convert/threads.srs)
 * [antijudol](https://cdn.jsdelivr.net/gh/malikshi/route@release/srs/convert/antijudol.srs)
 * [commonports](https://cdn.jsdelivr.net/gh/malikshi/route@release/srs/convert/commonports.srs)
-* [firewall](https://cdn.jsdelivr.net/gh/malikshi/route@release/srs/convert/firewall.srs)
+* [geoip-firewall](https://cdn.jsdelivr.net/gh/malikshi/route@release/srs/convert/geoip-firewall.srs)
 * [geoip-asnid](https://cdn.jsdelivr.net/gh/malikshi/route@release/srs/convert/geoip-asnid.srs)
 * [geoip-id](https://cdn.jsdelivr.net/gh/malikshi/route@release/srs/convert/geoip-id.srs)
 
