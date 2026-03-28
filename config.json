@@ -99,7 +99,7 @@
         {
           "source": "ASN",
           "type": "clash",
-          "url": "https://raw.githubusercontent.com/malikshi/ASN/refs/heads/main/asn398962.txt"
+          "url": "https://raw.githubusercontent.com/malikshi/ASN/refs/heads/release/default/text/asn398962.txt"
         }
       ]
     },
@@ -1326,6 +1326,93 @@
           "list": [
             "regexp:(?i)(?:[a-z0-9-]*?(?:abc|akseskaiko|alexistogel|arab|arabcuan|bandar|bet|betfair|betting|betway|bola|bonengjitu|bungakamboja|cariaman|carisini|casino|cina|cmd|coloradoenergynews|cuanwin|dafabet|deluna|dewa|dewalangit|gacor|gglobal|habanero|hartahuehue|hoki|hokidewa|ibcbet|istanatoto|jackpot|jpdewa|jpdewaodin|jpdreal|jpdtop|judi|kaiko|kasino|keristoto|king|legacyfarmerville|liga|ligahokie|ligajp|lotto|lottery|lucky|lunas|macanasia|maxbet|menujupenta|nagahoki|nixcentre|olxtoto|olympus|osaka|osakad|panutantoto|parimatch|parlay|pastijpmdk|penta|pentaku|polar|poker|pphokiresmi|pragmaticplay|qq|raja|rajalangit|rusia|sabung|sbobet|sgpslot-snow|slot|spadegaming|suhu|sukacina|sukarusia|terbangrusia|togel|toto|unibet|vip|viplol|vratu|win|xbet|yukrusia|zeus)-?\\d+[a-z0-9-]*|\\d+-?(?:abc|akseskaiko|alexistogel|arab|arabcuan|bandar|bet|betfair|betting|betway|bola|bonengjitu|bungakamboja|cariaman|carisini|casino|cina|cmd|coloradoenergynews|cuanwin|dafabet|deluna|dewa|dewalangit|gacor|gglobal|habanero|hartahuehue|hoki|hokidewa|ibcbet|istanatoto|jackpot|jpdewa|jpdewaodin|jpdreal|jpdtop|judi|kaiko|kasino|keristoto|king|legacyfarmerville|liga|ligahokie|ligajp|lotto|lottery|lucky|lunas|macanasia|maxbet|menujupenta|nagahoki|nixcentre|olxtoto|olympus|osaka|osakad|panutantoto|parimatch|parlay|pastijpmdk|penta|pentaku|polar|poker|pphokiresmi|pragmaticplay|qq|raja|rajalangit|rusia|sabung|sbobet|sgpslot-snow|slot|spadegaming|suhu|sukacina|sukarusia|terbangrusia|togel|toto|unibet|vip|viplol|vratu|win|xbet|yukrusia|zeus)[a-z0-9-]*)"
           ]
+        }
+      ]
+    },
+    {
+      "name": "commonports",
+      "routing": "BYPASS",
+      "list": [
+        {
+          "source": "direct",
+          "type": "plain",
+          "list": [
+            "port:21",
+            "port:22",
+            "port:23",
+            "port:80",
+            "port:81",
+            "port:119",
+            "port:123",
+            "port:143",
+            "port:182",
+            "port:183",
+            "port:194",
+            "port:443",
+            "port:465",
+            "port:500",
+            "port:587",
+            "port:853",
+            "port:976",
+            "port:993",
+            "port:995",
+            "port:998",
+            "port:2052",
+            "port:2053",
+            "port:2082",
+            "port:2083",
+            "port:2086",
+            "port:2095",
+            "port:2096",
+            "port:4500",
+            "port:5222",
+            "port:5228",
+            "port:5229",
+            "port:5230",
+            "port:8000",
+            "port:8080",
+            "port:8081",
+            "port:8088",
+            "port:8443",
+            "port:8880",
+            "port:8883",
+            "port:8888",
+            "port:8889",
+            "port:42069"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "firewall",
+      "routing": "BYPASS",
+      "list": [
+        {
+          "source": "geoip",
+          "type": "clash",
+          "url": "https://raw.githubusercontent.com/malikshi/ASN/refs/heads/release/default/text/ip_list.txt"
+        }
+      ]
+    },
+    {
+      "name": "geoip-asnid",
+      "routing": "BYPASS",
+      "list": [
+        {
+          "source": "geoip",
+          "type": "clash",
+          "url": "https://raw.githubusercontent.com/malikshi/geoid/refs/heads/release/IP.Indonesia.list"
+        }
+      ]
+    },
+    {
+      "name": "geoip-id",
+      "routing": "BYPASS",
+      "list": [
+        {
+          "source": "geoip",
+          "type": "clash",
+          "url": "https://raw.githubusercontent.com/Loyalsoldier/geoip/refs/heads/release/text/id.txt"
         }
       ]
     }
