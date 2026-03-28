@@ -14,12 +14,21 @@ jobs:
     steps:
     - uses: actions/checkout@v4
 
-    - name: "Setup sing-box"
+    - name: Setup Sing-box
       run: |
-          set -Eeuo pipefail
-          LATEST_RELEASE_URL=$(curl -s https://api.github.com/repos/SagerNet/sing-box/releases | grep "browser_download_url.*linux_amd64\.deb" | head -n 1 | cut -d '"' -f 4)
-          wget -O sing-box.deb $LATEST_RELEASE_URL
-          sudo dpkg -i sing-box.deb
+        echo "Installing sing-box..."
+        curl -fsSL https://get.sing-box.app/install.sh | sudo bash || echo "Failed to install sing-box"
+        
+        if command -v sing-box &> /dev/null; then
+          sing-box version
+        else
+          echo "Attempting to download latest sing-box pre-compiled binary..."
+          VERSION=$(curl -s https://api.github.com/repos/SagerNet/sing-box/releases/latest | grep '"tag_name":' | sed -E 's/.*"v([^"]+)".*/\1/')
+          curl -LO "https://github.com/SagerNet/sing-box/releases/download/v${VERSION}/sing-box-${VERSION}-linux-amd64.tar.gz"
+          tar -xzf "sing-box-${VERSION}-linux-amd64.tar.gz"
+          sudo mv "sing-box-${VERSION}-linux-amd64/sing-box" /usr/local/bin/
+          sing-box version
+        fi
 
     - name: Setup Python
       uses: actions/setup-python@v5
