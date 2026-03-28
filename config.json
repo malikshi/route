@@ -1082,8 +1082,12 @@
             "full:geo-id-tl-media-vidio-com.akamaized.net",
             "full:static-playback-vidio-com.akamaized.net",
             "full:live-production.secureswiftcontent.com",
+            "full:token-media-001-vidio-com.akamaized.net",
+            "full:static-playback.prod.vidiocdn.com",
             "keyword:vidio-bein",
-            "keyword:vidio"
+            "keyword:vidio",
+            "regexp:^etslive-v(10|[1-9])-vidio-com-tokenized\\.akamaized\\.net$",
+            "regexp:^token-media-0(10|0[1-9])-vidio-com\\.akamaized\\.net$"
           ]
         }
       ]
