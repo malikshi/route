@@ -12,18 +12,17 @@ jobs:
   generate_and_commit:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
 
     - name: "Setup sing-box"
-      env:
-        SING_BOX_DEB_URL: "https://github.com/SagerNet/sing-box/releases/download/v1.12.0-beta.13/sing-box_1.12.0-beta.13_linux_amd64.deb"
       run: |
           set -Eeuo pipefail
-          wget -O sing-box.deb $SING_BOX_DEB_URL
+          LATEST_RELEASE_URL=$(curl -s https://api.github.com/repos/SagerNet/sing-box/releases | grep "browser_download_url.*linux_amd64\.deb" | head -n 1 | cut -d '"' -f 4)
+          wget -O sing-box.deb $LATEST_RELEASE_URL
           sudo dpkg -i sing-box.deb
 
     - name: Setup Python
-      uses: actions/setup-python@v4
+      uses: actions/setup-python@v5
       with:
         python-version: '3.11'
         cache: 'pip'
@@ -54,16 +53,29 @@ jobs:
 
     - name: Push changes to release branch
       run: |
+        git clone -b release --depth 1 https://${GITHUB_ACTOR}:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git release_branch || echo "Branch doesn't exist"
+        
         cd release
-        git init
-        git config --local user.email "github-actions[bot]@users.noreply.github.com"
-        git config --local user.name "github-actions[bot]"
-        git remote add origin https://${GITHUB_ACTOR}:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
-        git branch -M release
-        git add .
-        if ! git diff --cached --quiet; then
+        HAS_CHANGES=true
+        if [ -d "../release_branch/.git" ]; then
+          mv ../release_branch/.git .git
+          git add .
+          if git diff --cached --quiet; then
+            HAS_CHANGES=false
+          fi
+        else
+          git init
+          git remote add origin https://${GITHUB_ACTOR}:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
+          git add .
+        fi
+        
+        if [ "$HAS_CHANGES" = true ]; then
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git checkout --orphan new_release
+          git add .
           git commit -m "Update release branch VVIP IPTUNNELS"
-          git push -f origin release
+          git push -f origin new_release:release
         else
           echo "No changes in release directory to commit."
         fi

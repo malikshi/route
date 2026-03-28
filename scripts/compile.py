@@ -2,16 +2,27 @@ import json
 import requests
 import subprocess
 import os
+import time
+import concurrent.futures
+
+def fetch_url(url, retries=3):
+    for i in range(retries):
+        try:
+            response = requests.get(url, timeout=15)
+            response.raise_for_status()
+            return response.text
+        except requests.exceptions.RequestException as e:
+            if i == retries - 1:
+                print(f"Error fetching {url}: {e}")
+                return None
+            time.sleep(1)
 
 def process_v2ray_source(url):
-    try:
-        response = requests.get(url)
-        response.raise_for_status()  # Raise an exception for HTTP errors
-    except requests.exceptions.RequestException as e:
-        print(f"Error fetching {url}: {e}")
+    text = fetch_url(url)
+    if not text:
         return []
 
-    lines = response.text.splitlines()
+    lines = text.splitlines()
     domains = []
     base_url = "/".join(url.split("/")[:-1]) + "/"
     for line in lines:
@@ -98,14 +109,11 @@ def process_plain_source(list):
 
 
 def process_clash_source(url):
-    try:
-        response = requests.get(url)
-        response.raise_for_status()  # Raise an exception for HTTP errors
-    except requests.exceptions.RequestException as e:
-        print(f"Error fetching {url}: {e}")
+    text = fetch_url(url)
+    if not text:
         return [], []
 
-    lines = response.text.splitlines()
+    lines = text.splitlines()
     domains = []
     ip_cidrs = []
     for line in lines:
@@ -119,6 +127,9 @@ def process_clash_source(url):
         if line.startswith("DOMAIN-SUFFIX,"):
             domain_suffix = line.split(",")[1].strip()
             domains.append(f"suffix:{domain_suffix}")
+        elif line.startswith("DOMAIN-REGEX,"):
+            regexp = line.split(",")[1].strip()
+            domains.append(f"regexp:{regexp}")
         elif line.startswith("DOMAIN,"):
             domain = line.split(",")[1].strip()
             domains.append(domain)
@@ -131,6 +142,16 @@ def process_clash_source(url):
         elif "/" in line:
             ip_cidrs.append(line)
     return domains, ip_cidrs
+
+def fetch_source(source):
+    if source["type"] == "v2ray":
+        return process_v2ray_source(source["url"]), [], [], []
+    elif source["type"] == "clash":
+        source_domains, source_ip_cidrs = process_clash_source(source["url"])
+        return source_domains, source_ip_cidrs, [], []
+    elif source["type"] == "plain":
+        return process_plain_source(source["list"])
+    return [], [], [], []
 
 
 def generate_json(i, route):
@@ -180,8 +201,11 @@ def generate_json(i, route):
         for key in domains
         if domains[key]
     }
-    # Add dot (.) to domain suffixes in json_data_srs
-    rule["domain_suffix"] = [f".{domain_suffix}" if '.' not in domain_suffix else domain_suffix for domain_suffix in rule.get("domain_suffix", [])]
+    
+    domain_suffixes = rule.get("domain_suffix", [])
+    if domain_suffixes:
+        # Add dot (.) to domain suffixes in json_data_srs
+        rule["domain_suffix"] = [f".{domain_suffix}" if '.' not in domain_suffix else domain_suffix for domain_suffix in domain_suffixes]
 
     if ip_cidrs["ipv4"] or ip_cidrs["ipv6"]:
         rule["ip_cidr"] = ip_cidrs["ipv4"] + ip_cidrs["ipv6"]
@@ -192,7 +216,7 @@ def generate_json(i, route):
 
     json_data_srs = {
         "version": 3,
-        "rules": [rule]
+        "rules": [rule] if rule else []
     }
 
     if route["routing"] in ["BYPASS", "BLOCK"]:
@@ -213,7 +237,7 @@ def generate_json(i, route):
 
     for domain in domains["domain"]:
         json_data_routing["rules"].append({"PK": domain, "action": routing_action})
-    for domain_suffix in rule["domain_suffix"]:
+    for domain_suffix in rule.get("domain_suffix", []):
         if not domain_suffix.startswith('.'):
             json_data_routing["rules"].append({"PK": domain_suffix, "action": routing_action})
         else:
@@ -225,7 +249,12 @@ def generate_json(i, route):
 def compile_srs(json_data, output_file):
     with open("temp.json", "w") as f:
         json.dump(json_data, f)
-    subprocess.run(["sing-box", "rule-set", "compile", "temp.json", "-o", output_file])
+    try:
+        subprocess.run(["sing-box", "rule-set", "compile", "temp.json", "-o", output_file], check=True)
+    except FileNotFoundError:
+        print("Warning: sing-box binary not found, skipping SRS compilation for", output_file)
+    except subprocess.CalledProcessError as e:
+        print(f"Error: sing-box compilation failed for {output_file}: {e}")
 
 def generate_rule_set(config):
     rule_set = []
