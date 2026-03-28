@@ -1384,7 +1384,7 @@
       ]
     },
     {
-      "name": "firewall",
+      "name": "geoip-firewall",
       "routing": "BYPASS",
       "list": [
         {
