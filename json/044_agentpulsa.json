@@ -1,0 +1,1 @@
+{"group": {"group": "044_agentpulsa", "action": {"do": 3, "via": "CGK", "status": 1}}, "rules": [{"PK": "isipulsa.web.id", "action": {"do": 3, "via": "CGK", "status": 1}}, {"PK": "orderkuota.com", "action": {"do": 3, "via": "CGK", "status": 1}}]}

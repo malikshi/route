@@ -1,0 +1,1 @@
+{"group": {"group": "028_mncplus", "action": {"do": 3, "via": "CGK", "status": 1}}, "rules": [{"PK": "mncnow.id", "action": {"do": 3, "via": "CGK", "status": 1}}, {"PK": "mncplay.id", "action": {"do": 3, "via": "CGK", "status": 1}}, {"PK": "mncplus.id", "action": {"do": 3, "via": "CGK", "status": 1}}]}
