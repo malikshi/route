@@ -1,0 +1,1 @@
+{"version": 3, "rules": [{"domain_suffix": ["iflix-images.akamaized.net", "iflix.com", "v.smtcdns.com", "v.smtcdns.net", "vv.video.qq.com", "wetv.qq.com", "wetv.vip", "wetvinfo.com"], "domain_keyword": ["iflix", "wetv"], "ip_cidr": ["150.109.28.51/32"]}]}
