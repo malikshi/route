@@ -1,0 +1,1 @@
+{"group": {"group": "030_indihometv", "action": {"do": 3, "via": "CGK", "status": 1}}, "rules": [{"PK": "indihometv.com", "action": {"do": 3, "via": "CGK", "status": 1}}, {"PK": "useetv.com", "action": {"do": 3, "via": "CGK", "status": 1}}, {"PK": "useetvgo.com", "action": {"do": 3, "via": "CGK", "status": 1}}]}
